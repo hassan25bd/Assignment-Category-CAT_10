@@ -21,6 +21,20 @@ const Footer = () => {
           <p>Mon - Fri: 9:00 AM - 7:00 PM</p>
           <p>Sat - Sun: 10:00 AM - 5:00 PM</p>
         </div>
+
+        <div>
+          <h4>Photo Credits</h4>
+          <p>
+            <a href="https://unsplash.com" target="_blank" rel="noreferrer">
+              Unsplash Photography
+            </a>
+          </p>
+          <p>
+            <a href="https://www.pexels.com" target="_blank" rel="noreferrer">
+              Pexels Photography
+            </a>
+          </p>
+        </div>
       </div>
       <p className="copyright">Copyright {new Date().getFullYear()} PetNest. All rights reserved.</p>
     </footer>

@@ -179,6 +179,16 @@ p {
   align-items: center;
 }
 
+.mobile-menu-btn {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-weight: 600;
+}
+
 .profile-menu {
   position: relative;
 }
@@ -442,6 +452,22 @@ p {
   display: grid;
   grid-template-columns: 2fr 3fr 1fr;
   gap: 12px;
+}
+
+.all-pets-shell {
+  background: linear-gradient(180deg, rgba(15, 118, 110, 0.08), rgba(15, 118, 110, 0));
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 20px;
+}
+
+.details-card h2 {
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+
+.details-card > p {
+  color: var(--muted);
 }
 
 .filters input,
@@ -718,8 +744,35 @@ td {
 
 @media (max-width: 700px) {
   .nav-inner {
-    flex-direction: column;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+
+  .mobile-menu-btn {
+    display: inline-flex;
+  }
+
+  .nav-links {
+    width: 100%;
+    display: none;
+    grid-column: 1 / -1;
+    margin-top: 8px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 10px;
+    background: var(--card);
+  }
+
+  .nav-links.open {
+    display: grid;
+    gap: 10px;
+  }
+
+  .nav-actions {
+    grid-column: 1 / -1;
+    width: 100%;
+    justify-content: space-between;
   }
 
   .pet-grid,

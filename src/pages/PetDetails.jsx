@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import toast from "react-hot-toast";
+import { motion } from "framer-motion";
 import api from "../utils/api";
 import Spinner from "../components/Spinner";
 import { useAuth } from "../context/AuthContext";
@@ -50,7 +51,12 @@ const PetDetails = () => {
 
   return (
     <section className="container section details-grid">
-      <article className="details-card">
+      <motion.article
+        className="details-card"
+        initial={{ opacity: 0, x: -18 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.35 }}
+      >
         <img src={pet.imageUrl} alt={pet.petName} className="details-image" />
         <h2>{pet.petName}</h2>
         <p>{pet.description}</p>
@@ -65,9 +71,15 @@ const PetDetails = () => {
           <p>Adoption Fee: ${pet.adoptionFee}</p>
           <p>Status: {pet.status}</p>
         </div>
-      </article>
+      </motion.article>
 
-      <form onSubmit={handleAdopt} className="form-card">
+      <motion.form
+        onSubmit={handleAdopt}
+        className="form-card"
+        initial={{ opacity: 0, x: 18 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.35, delay: 0.05 }}
+      >
         <h3>Adoption Form</h3>
         <label>
           Pet Name
@@ -96,7 +108,7 @@ const PetDetails = () => {
         <button type="submit" className="btn btn-primary" disabled={pet.status === "adopted"}>
           {pet.status === "adopted" ? "Already Adopted" : "Adopt"}
         </button>
-      </form>
+      </motion.form>
     </section>
   );
 };

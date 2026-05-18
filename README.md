@@ -51,3 +51,7 @@ PetNest is a full-stack MERN platform that helps users discover adoptable pets, 
 - Client is ready for Vercel with route rewrites in `vercel.json`.
 - Server is ready for Render using `render.yaml`.
 - Keep MongoDB URI and JWT secret in environment variables.
+
+## Image Sources
+- Hero and story visuals use real photography from Unsplash and Pexels.
+- Links are credited in the site footer and image URLs are used only for assignment presentation.
