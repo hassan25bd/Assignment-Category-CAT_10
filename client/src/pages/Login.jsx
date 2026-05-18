@@ -36,14 +36,21 @@ const Login = () => {
 
   return (
     <section className="section container auth-wrap">
-      <div className="auth-layout">
+      <div className="auth-layout auth-layout-vibrant">
         <div className="auth-visual login-visual">
+          <p className="auth-kicker">Adoption Member Area</p>
           <h3>Welcome Back</h3>
           <p>Sign in to manage your requests and continue your adoption journey.</p>
+          <div className="auth-visual-points">
+            <span>Track adoption request status</span>
+            <span>Review owner responses</span>
+            <span>Plan a safe pickup date</span>
+          </div>
         </div>
 
         <form className="form-card auth-card" onSubmit={handleSubmit}>
           <h2>Login</h2>
+          <p className="auth-subtitle">Continue your path to giving a pet a forever home.</p>
           <label>
             Email
             <input
@@ -67,7 +74,7 @@ const Login = () => {
           </button>
           <button
             type="button"
-            className="btn btn-outline"
+            className="btn btn-outline google-btn"
             onClick={handleGoogleLogin}
             disabled={!isFirebaseConfigured}
             title={!isFirebaseConfigured ? "Configure Firebase env variables in Vercel" : ""}
@@ -75,7 +82,7 @@ const Login = () => {
             Continue with Google
           </button>
           {!isFirebaseConfigured ? (
-            <p style={{ color: "#b45309", fontSize: "14px" }}>
+            <p className="firebase-warning">
               Google login unavailable. Missing: {missingFirebaseEnvKeys.join(", ")}
             </p>
           ) : null}

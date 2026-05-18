@@ -48,14 +48,21 @@ const Register = () => {
 
   return (
     <section className="section container auth-wrap">
-      <div className="auth-layout">
+      <div className="auth-layout auth-layout-vibrant">
         <div className="auth-visual register-visual">
+          <p className="auth-kicker">Start Your Adoption Journey</p>
           <h3>Create Account</h3>
           <p>Join PetNest and connect with verified pets ready for a loving home.</p>
+          <div className="auth-visual-points">
+            <span>Browse trusted pet profiles</span>
+            <span>Submit thoughtful requests</span>
+            <span>Adopt with confidence</span>
+          </div>
         </div>
 
         <form className="form-card auth-card" onSubmit={handleSubmit}>
           <h2>Register</h2>
+          <p className="auth-subtitle">Create your profile and be ready to welcome a companion home.</p>
           <label>
             Name
             <input

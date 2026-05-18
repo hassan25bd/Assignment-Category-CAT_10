@@ -1001,6 +1001,20 @@ p {
   background: var(--card);
 }
 
+.auth-layout-vibrant {
+  position: relative;
+}
+
+.auth-layout-vibrant::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(247, 200, 67, 0.25), transparent 38%),
+    radial-gradient(circle at 90% 85%, rgba(30, 167, 182, 0.2), transparent 34%);
+}
+
 .auth-visual {
   padding: 30px;
   color: #fff;
@@ -1018,14 +1032,39 @@ p {
   color: rgba(255, 255, 255, 0.92);
 }
 
+.auth-kicker {
+  width: fit-content;
+  border-radius: 999px;
+  padding: 6px 12px;
+  background: rgba(247, 200, 67, 0.85);
+  color: #2e2719;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.auth-visual-points {
+  margin-top: 10px;
+  display: grid;
+  gap: 7px;
+}
+
+.auth-visual-points span {
+  width: fit-content;
+  border-radius: 999px;
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 13px;
+}
+
 .login-visual {
-  background: linear-gradient(rgba(19, 32, 35, 0.42), rgba(19, 32, 35, 0.62)),
+  background: linear-gradient(rgba(15, 30, 34, 0.3), rgba(15, 30, 34, 0.65)),
     url("https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=1400&q=80")
       center/cover;
 }
 
 .register-visual {
-  background: linear-gradient(rgba(39, 24, 14, 0.35), rgba(39, 24, 14, 0.62)),
+  background: linear-gradient(rgba(34, 23, 14, 0.3), rgba(34, 23, 14, 0.64)),
     url("https://images.unsplash.com/photo-1601758123927-196c7f5f4d39?auto=format&fit=crop&w=1400&q=80")
       center/cover;
 }
@@ -1035,6 +1074,31 @@ p {
   border-radius: 0;
   box-shadow: none;
   padding: 28px;
+  position: relative;
+}
+
+.auth-subtitle {
+  margin-top: -2px;
+  margin-bottom: 4px;
+  color: var(--muted);
+}
+
+.google-btn {
+  border-color: rgba(30, 167, 182, 0.42);
+  background: rgba(30, 167, 182, 0.08);
+}
+
+.google-btn:hover {
+  background: rgba(30, 167, 182, 0.16);
+}
+
+.firebase-warning {
+  color: #9a5d0a;
+  font-size: 14px;
+  border: 1px dashed rgba(154, 93, 10, 0.35);
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: rgba(247, 200, 67, 0.2);
 }
 
 .form-card {
