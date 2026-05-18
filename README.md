@@ -1,16 +1,53 @@
-# React + Vite
+# PetNest - Pet Adoption Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Purpose
+PetNest is a full-stack MERN platform that helps users discover adoptable pets, request adoptions, and manage request status while pet owners or shelters manage listings and approve or reject requests securely.
 
-Currently, two official plugins are available:
+## Live URL
+- Client: https://your-client-url.vercel.app
+- Server: https://your-server-url.onrender.com
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Core Features
+- JWT authentication with HTTPOnly cookies and protected private routes.
+- Browse all pets with search, species filtering, and sorting support.
+- Private pet details page with adoption request form and status handling.
+- Dashboard modules: Add Pet, My Listings, and My Requests.
+- Request moderation with approve/reject actions and single approval enforcement.
+- Responsive UI for mobile, tablet, and desktop with toast-based notifications.
+- Reload-safe client routing configured for deployment.
 
-## React Compiler
+## NPM Packages Used
+### Client
+- react
+- react-dom
+- react-router-dom
+- axios
+- react-hot-toast
+- framer-motion
+- react-icons
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Server
+- express
+- mongodb
+- jsonwebtoken
+- cookie-parser
+- bcryptjs
+- cors
+- dotenv
+- nodemon
 
-## Expanding the ESLint configuration
+## Local Setup
+1. Start client:
+   - `npm install`
+   - Create `.env` using `.env.example`
+   - `npm run dev`
+2. Start server:
+   - `cd ../server`
+   - `npm install`
+   - Create `.env` using `.env.example`
+   - `npm run dev`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Deployment Notes
+- Client is ready for Vercel with route rewrites in `vercel.json`.
+- Server is ready for Render using `render.yaml`.
+- Keep MongoDB URI and JWT secret in environment variables.
