@@ -1,13 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap");
 
 :root {
-  --bg: #f8f3e7;
-  --card: #fffaf0;
+  --bg: #f7f3e8;
+  --card: #fffaf2;
   --ink: #1f1b16;
-  --muted: #6b5f50;
-  --line: #e2d6c2;
-  --brand: #0b7a74;
-  --brand-strong: #075e59;
+  --muted: #6b5d49;
+  --line: #e6d8be;
+  --brand: #1ea7b6;
+  --brand-strong: #177f89;
+  --accent: #f7c843;
   --danger: #be123c;
   --shadow: 0 12px 28px rgba(22, 22, 18, 0.12);
 }
@@ -33,8 +34,8 @@ body {
   font-family: "Outfit", sans-serif;
   color: var(--ink);
   background:
-    radial-gradient(circle at 10% 8%, rgba(11, 122, 116, 0.15), transparent 34%),
-    radial-gradient(circle at 85% 0%, rgba(245, 158, 11, 0.17), transparent 35%),
+    radial-gradient(circle at 10% 8%, rgba(30, 167, 182, 0.16), transparent 34%),
+    radial-gradient(circle at 85% 0%, rgba(247, 200, 67, 0.22), transparent 35%),
     var(--bg);
 }
 
@@ -104,12 +105,12 @@ p {
 }
 
 .top-strip {
-  background: #c495f2;
-  color: #fff;
+  background: var(--accent);
+  color: #2e2719;
   font-weight: 700;
   font-size: 13px;
   overflow: hidden;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .top-strip-inner {
@@ -310,7 +311,10 @@ p {
 
 .hero {
   padding: 74px 0;
-  background: #55c0df;
+  background:
+    radial-gradient(circle at 88% 10%, rgba(247, 200, 67, 0.5), transparent 30%),
+    radial-gradient(circle at 4% 60%, rgba(255, 255, 255, 0.7), transparent 26%),
+    #58c4d9;
   position: relative;
 }
 
@@ -397,7 +401,7 @@ p {
 
 .hero-credit {
   grid-column: 1 / -1;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.95);
   font-size: 13px;
 }
 
@@ -452,7 +456,7 @@ p {
 }
 
 .category-section {
-  background: #e9e3d2;
+  background: linear-gradient(180deg, rgba(247, 200, 67, 0.18), rgba(247, 200, 67, 0.06));
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
@@ -466,7 +470,7 @@ p {
 .category-card {
   background: #fff;
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 18px;
   padding: 12px;
   text-align: center;
   display: grid;
@@ -477,7 +481,7 @@ p {
   width: 100%;
   height: 120px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 14px;
 }
 
 .gallery-shot {
@@ -604,8 +608,8 @@ p {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: rgba(11, 122, 116, 0.15);
-  border: 1px solid rgba(11, 122, 116, 0.35);
+  background: rgba(247, 200, 67, 0.32);
+  border: 1px solid rgba(197, 152, 25, 0.55);
   display: grid;
   place-items: center;
   font-weight: 700;
@@ -652,8 +656,8 @@ p {
 
 .pet-badge {
   width: fit-content;
-  background: rgba(15, 118, 110, 0.14);
-  border: 1px solid rgba(15, 118, 110, 0.24);
+  background: rgba(30, 167, 182, 0.14);
+  border: 1px solid rgba(30, 167, 182, 0.28);
   border-radius: 999px;
   font-size: 13px;
   padding: 4px 10px;
@@ -706,8 +710,8 @@ p {
   border-radius: 50%;
   display: grid;
   place-items: center;
-  background: rgba(15, 118, 110, 0.14);
-  border: 1px solid rgba(15, 118, 110, 0.3);
+  background: rgba(247, 200, 67, 0.32);
+  border: 1px solid rgba(197, 152, 25, 0.55);
   font-weight: 700;
 }
 
@@ -741,7 +745,9 @@ p {
 }
 
 .testimonial-section {
-  background: #55c0df;
+  background:
+    radial-gradient(circle at 10% 18%, rgba(255, 255, 255, 0.25), transparent 38%),
+    #58c4d9;
   color: #fff;
 }
 
@@ -813,7 +819,7 @@ p {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   padding: 24px 0;
-  background: rgba(255, 255, 255, 0.55);
+  background: rgba(247, 200, 67, 0.12);
 }
 
 .partner-grid {
@@ -891,6 +897,19 @@ p {
   gap: 18px;
 }
 
+.details-shell {
+  position: relative;
+}
+
+.details-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+  background: linear-gradient(120deg, rgba(30, 167, 182, 0.13), rgba(247, 200, 67, 0.16));
+  z-index: -1;
+}
+
 .details-card,
 .form-card,
 .dashboard-sidebar,
@@ -906,6 +925,57 @@ p {
   border-radius: 14px;
   height: 340px;
   object-fit: cover;
+}
+
+.details-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+
+.details-head h2 {
+  margin: 0;
+}
+
+.details-status-pill {
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 5px 10px;
+  text-transform: capitalize;
+  background: rgba(30, 167, 182, 0.18);
+  border: 1px solid rgba(30, 167, 182, 0.35);
+}
+
+.details-status-pill.adopted {
+  background: rgba(190, 24, 93, 0.16);
+  border-color: rgba(190, 24, 93, 0.35);
+}
+
+.details-highlights {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.details-highlights span {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 5px 10px;
+  background: rgba(247, 200, 67, 0.2);
+  font-size: 13px;
+}
+
+.adoption-note {
+  border: 1px dashed rgba(30, 167, 182, 0.4);
+  border-radius: 12px;
+  background: rgba(30, 167, 182, 0.08);
+  padding: 10px;
+  color: var(--muted);
 }
 
 .details-meta {

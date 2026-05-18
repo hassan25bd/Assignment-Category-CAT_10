@@ -71,25 +71,25 @@ const storyCards = [
 
 const serviceCards = [
   {
-    title: "Location Finder",
-    text: "Find nearby pet-friendly shelters and adoption centers quickly.",
-    action: "Find Center",
+    title: "Rescue Locator",
+    text: "Find nearby shelters and verified owners to begin safe adoptions.",
+    action: "Find Rescues",
     to: "/pets",
     image:
       "https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&w=900&q=80",
   },
   {
-    title: "Pet Vending",
-    text: "Browse trusted supplies and care essentials during adoption planning.",
-    action: "Browse Supplies",
+    title: "Home Readiness",
+    text: "Prepare your space with practical guidance before your new companion arrives.",
+    action: "Read Checklist",
     to: "/pets",
     image:
       "https://images.unsplash.com/photo-1603123853880-a92fafb7809f?auto=format&fit=crop&w=900&q=80",
   },
   {
-    title: "Storefront",
-    text: "View pet listings, care details, and transparent owner information.",
-    action: "Explore Listings",
+    title: "Trusted Profiles",
+    text: "Review health, behavior, and owner details before you request adoption.",
+    action: "Meet Pets",
     to: "/pets",
     image:
       "https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd?auto=format&fit=crop&w=900&q=80",
@@ -151,12 +151,12 @@ const adoptionPromises = [
 ];
 
 const categoryCards = [
-  { name: "Bowls", image: "https://images.unsplash.com/photo-1583511655907-d34b81ad4e77?auto=format&fit=crop&w=500&q=80" },
-  { name: "Toys", image: "https://images.unsplash.com/photo-1601758064223-638f28fdd8e2?auto=format&fit=crop&w=500&q=80" },
-  { name: "Food", image: "https://images.unsplash.com/photo-1589924691995-400dc9ecc119?auto=format&fit=crop&w=500&q=80" },
-  { name: "Scratchers", image: "https://images.unsplash.com/photo-1617083934551-21e757a461c5?auto=format&fit=crop&w=500&q=80" },
-  { name: "Houses", image: "https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=500&q=80" },
-  { name: "Accessories", image: "https://images.unsplash.com/photo-1613176747384-88969e4fdca6?auto=format&fit=crop&w=500&q=80" },
+  { name: "Dogs", image: "https://images.unsplash.com/photo-1583511655907-d34b81ad4e77?auto=format&fit=crop&w=500&q=80" },
+  { name: "Cats", image: "https://images.unsplash.com/photo-1601758064223-638f28fdd8e2?auto=format&fit=crop&w=500&q=80" },
+  { name: "Rabbits", image: "https://images.unsplash.com/photo-1589924691995-400dc9ecc119?auto=format&fit=crop&w=500&q=80" },
+  { name: "Birds", image: "https://images.unsplash.com/photo-1617083934551-21e757a461c5?auto=format&fit=crop&w=500&q=80" },
+  { name: "Seniors", image: "https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=500&q=80" },
+  { name: "Special Care", image: "https://images.unsplash.com/photo-1613176747384-88969e4fdca6?auto=format&fit=crop&w=500&q=80" },
 ];
 
 const adoptionSteps = [
@@ -187,10 +187,10 @@ const Home = () => {
     <div>
       <section className="top-strip">
         <div className="top-strip-inner">
-          <p>You are one step away from your perfect pet companion</p>
-          <p>You are one step away from your perfect pet companion</p>
-          <p>You are one step away from your perfect pet companion</p>
-          <p>You are one step away from your perfect pet companion</p>
+          <p>ADOPTION WEEK: OPEN HEARTS, OPEN HOMES, OPEN FOREVER BONDS</p>
+          <p>ADOPTION WEEK: OPEN HEARTS, OPEN HOMES, OPEN FOREVER BONDS</p>
+          <p>ADOPTION WEEK: OPEN HEARTS, OPEN HOMES, OPEN FOREVER BONDS</p>
+          <p>ADOPTION WEEK: OPEN HEARTS, OPEN HOMES, OPEN FOREVER BONDS</p>
         </div>
       </section>
 
@@ -325,8 +325,8 @@ const Home = () => {
 
       <section className="section category-section">
         <div className="container section-head">
-          <h2>We Love Your Furry Family Members</h2>
-          <p>Explore care categories to prepare a happy, healthy home.</p>
+          <h2>Adopt by Companion Type</h2>
+          <p>Start your journey by exploring pets that match your lifestyle and home energy.</p>
         </div>
         <div className="container category-grid">
           {categoryCards.map((item) => (
@@ -334,7 +334,7 @@ const Home = () => {
               <img src={item.image} alt={item.name} loading="lazy" />
               <h4>{item.name}</h4>
               <Link to="/pets" className="btn btn-outline btn-sm">
-                Shop {item.name}
+                View {item.name}
               </Link>
             </article>
           ))}
@@ -409,8 +409,8 @@ const Home = () => {
 
       <section className="section section-soft testimonial-section">
         <div className="container section-head">
-          <h2>We Deliver Heartfelt Pet Support</h2>
-          <p>Read what adopters are saying about the PetNest experience.</p>
+          <h2>Happy Tails, Real Adoption Stories</h2>
+          <p>Families share how PetNest helped them adopt with confidence and care.</p>
         </div>
         <div className="container testimonial-grid">
           <article className="testimonial-card">

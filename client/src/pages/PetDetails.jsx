@@ -50,7 +50,7 @@ const PetDetails = () => {
   if (!pet) return null;
 
   return (
-    <section className="container section details-grid">
+    <section className="container section details-grid details-shell">
       <motion.article
         className="details-card"
         initial={{ opacity: 0, x: -18 }}
@@ -58,8 +58,18 @@ const PetDetails = () => {
         transition={{ duration: 0.35 }}
       >
         <img src={pet.imageUrl} alt={pet.petName} className="details-image" />
-        <h2>{pet.petName}</h2>
+        <div className="details-head">
+          <h2>{pet.petName}</h2>
+          <span className={`details-status-pill ${pet.status === "adopted" ? "adopted" : ""}`}>
+            {pet.status}
+          </span>
+        </div>
         <p>{pet.description}</p>
+        <div className="details-highlights">
+          <span>Verified Listing</span>
+          <span>Transparent Health Info</span>
+          <span>Safe Pickup Planning</span>
+        </div>
         <div className="details-meta">
           <p>Species: {pet.species}</p>
           <p>Breed: {pet.breed}</p>
@@ -81,6 +91,9 @@ const PetDetails = () => {
         transition={{ duration: 0.35, delay: 0.05 }}
       >
         <h3>Adoption Form</h3>
+        <p className="adoption-note">
+          Send a thoughtful note to improve your chance of approval and build trust with the owner.
+        </p>
         <label>
           Pet Name
           <input value={pet.petName} readOnly />
