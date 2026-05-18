@@ -378,6 +378,12 @@ p {
   border-radius: 18px;
   overflow: hidden;
   box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pet-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 30px rgba(22, 18, 12, 0.2);
 }
 
 .pet-image {
@@ -562,8 +568,51 @@ p {
   place-items: center;
 }
 
-.auth-wrap .form-card {
-  width: min(520px, 100%);
+.auth-layout {
+  width: min(960px, 100%);
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: var(--card);
+}
+
+.auth-visual {
+  padding: 30px;
+  color: #fff;
+  display: grid;
+  align-content: end;
+  gap: 10px;
+  min-height: 520px;
+}
+
+.auth-visual h3 {
+  font-size: clamp(30px, 4vw, 44px);
+}
+
+.auth-visual p {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.login-visual {
+  background: linear-gradient(rgba(19, 32, 35, 0.42), rgba(19, 32, 35, 0.62)),
+    url("https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=1400&q=80")
+      center/cover;
+}
+
+.register-visual {
+  background: linear-gradient(rgba(39, 24, 14, 0.35), rgba(39, 24, 14, 0.62)),
+    url("https://images.unsplash.com/photo-1601758123927-196c7f5f4d39?auto=format&fit=crop&w=1400&q=80")
+      center/cover;
+}
+
+.auth-card {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 28px;
 }
 
 .form-card {
@@ -696,7 +745,7 @@ td {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
 }
 
@@ -760,6 +809,7 @@ td {
   .photo-gallery-grid,
   .static-grid,
   .stories-grid,
+  .auth-layout,
   .footer-grid,
   .stats-grid,
   .form-grid {
@@ -808,6 +858,7 @@ td {
   .photo-gallery-grid,
   .static-grid,
   .stories-grid,
+  .auth-layout,
   .footer-grid,
   .stats-grid,
   .form-grid,
@@ -815,6 +866,15 @@ td {
   .journey-grid,
   .hero-metrics {
     grid-template-columns: 1fr;
+  }
+
+  .auth-visual {
+    min-height: 210px;
+    padding: 20px;
+  }
+
+  .auth-card {
+    padding: 18px;
   }
 
   .hero {

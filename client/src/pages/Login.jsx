@@ -36,47 +36,54 @@ const Login = () => {
 
   return (
     <section className="section container auth-wrap">
-      <form className="form-card" onSubmit={handleSubmit}>
-        <h2>Login</h2>
-        <label>
-          Email
-          <input
-            type="email"
-            required
-            value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            required
-            value={formData.password}
-            onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-          />
-        </label>
-        <button type="submit" className="btn btn-primary">
-          Login
-        </button>
-        <button
-          type="button"
-          className="btn btn-outline"
-          onClick={handleGoogleLogin}
-          disabled={!isFirebaseConfigured}
-          title={!isFirebaseConfigured ? "Configure Firebase env variables in Vercel" : ""}
-        >
-          Continue with Google
-        </button>
-        {!isFirebaseConfigured ? (
-          <p style={{ color: "#b45309", fontSize: "14px" }}>
-            Google login unavailable. Missing: {missingFirebaseEnvKeys.join(", ")}
+      <div className="auth-layout">
+        <div className="auth-visual login-visual">
+          <h3>Welcome Back</h3>
+          <p>Sign in to manage your requests and continue your adoption journey.</p>
+        </div>
+
+        <form className="form-card auth-card" onSubmit={handleSubmit}>
+          <h2>Login</h2>
+          <label>
+            Email
+            <input
+              type="email"
+              required
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            />
+          </label>
+          <label>
+            Password
+            <input
+              type="password"
+              required
+              value={formData.password}
+              onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+            />
+          </label>
+          <button type="submit" className="btn btn-primary">
+            Login
+          </button>
+          <button
+            type="button"
+            className="btn btn-outline"
+            onClick={handleGoogleLogin}
+            disabled={!isFirebaseConfigured}
+            title={!isFirebaseConfigured ? "Configure Firebase env variables in Vercel" : ""}
+          >
+            Continue with Google
+          </button>
+          {!isFirebaseConfigured ? (
+            <p style={{ color: "#b45309", fontSize: "14px" }}>
+              Google login unavailable. Missing: {missingFirebaseEnvKeys.join(", ")}
+            </p>
+          ) : null}
+          <p>
+            New here? <Link to="/register">Register</Link>
           </p>
-        ) : null}
-        <p>
-          New here? <Link to="/register">Register</Link>
-        </p>
-      </form>
+        </form>
+      </div>
     </section>
   );
 };

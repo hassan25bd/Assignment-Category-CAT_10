@@ -48,58 +48,65 @@ const Register = () => {
 
   return (
     <section className="section container auth-wrap">
-      <form className="form-card" onSubmit={handleSubmit}>
-        <h2>Register</h2>
-        <label>
-          Name
-          <input
-            required
-            value={formData.name}
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-          />
-        </label>
-        <label>
-          Email
-          <input
-            type="email"
-            required
-            value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-          />
-        </label>
-        <label>
-          Photo URL
-          <input
-            required
-            value={formData.photoURL}
-            onChange={(e) => setFormData({ ...formData, photoURL: e.target.value })}
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            required
-            value={formData.password}
-            onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-          />
-        </label>
-        <label>
-          Confirm Password
-          <input
-            type="password"
-            required
-            value={formData.confirmPassword}
-            onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
-          />
-        </label>
-        <button type="submit" className="btn btn-primary">
-          Register
-        </button>
-        <p>
-          Already have an account? <Link to="/login">Login</Link>
-        </p>
-      </form>
+      <div className="auth-layout">
+        <div className="auth-visual register-visual">
+          <h3>Create Account</h3>
+          <p>Join PetNest and connect with verified pets ready for a loving home.</p>
+        </div>
+
+        <form className="form-card auth-card" onSubmit={handleSubmit}>
+          <h2>Register</h2>
+          <label>
+            Name
+            <input
+              required
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            />
+          </label>
+          <label>
+            Email
+            <input
+              type="email"
+              required
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            />
+          </label>
+          <label>
+            Photo URL
+            <input
+              required
+              value={formData.photoURL}
+              onChange={(e) => setFormData({ ...formData, photoURL: e.target.value })}
+            />
+          </label>
+          <label>
+            Password
+            <input
+              type="password"
+              required
+              value={formData.password}
+              onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+            />
+          </label>
+          <label>
+            Confirm Password
+            <input
+              type="password"
+              required
+              value={formData.confirmPassword}
+              onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
+            />
+          </label>
+          <button type="submit" className="btn btn-primary">
+            Register
+          </button>
+          <p>
+            Already have an account? <Link to="/login">Login</Link>
+          </p>
+        </form>
+      </div>
     </section>
   );
 };
