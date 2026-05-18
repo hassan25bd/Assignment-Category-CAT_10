@@ -1,0 +1,7 @@
+client/node_modules/
+client/dist/
+client/.env
+client/.git.backup/
+server/node_modules/
+server/.env
+.DS_Store
