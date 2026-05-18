@@ -509,6 +509,7 @@ p {
   overflow: hidden;
   box-shadow: var(--shadow);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
 }
 
 .pet-card:hover {
@@ -520,6 +521,127 @@ p {
   width: 100%;
   height: 210px;
   object-fit: cover;
+}
+
+.status-ribbon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.status-ribbon.available {
+  background: rgba(16, 185, 129, 0.16);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.status-ribbon.adopted {
+  background: rgba(190, 24, 93, 0.16);
+  border: 1px solid rgba(190, 24, 93, 0.35);
+}
+
+.species-dog .pet-card-body {
+  background: linear-gradient(180deg, rgba(250, 204, 21, 0.09), transparent);
+}
+
+.species-cat .pet-card-body {
+  background: linear-gradient(180deg, rgba(244, 114, 182, 0.09), transparent);
+}
+
+.species-bird .pet-card-body {
+  background: linear-gradient(180deg, rgba(56, 189, 248, 0.1), transparent);
+}
+
+.species-rabbit .pet-card-body {
+  background: linear-gradient(180deg, rgba(167, 139, 250, 0.1), transparent);
+}
+
+.creative-banner {
+  border: 1px solid var(--line);
+  background: var(--card);
+  border-radius: 24px;
+  padding: 18px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 16px;
+  align-items: center;
+}
+
+.creative-banner-copy p {
+  color: var(--muted);
+}
+
+.creative-banner-photo {
+  min-height: 320px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: linear-gradient(rgba(30, 20, 12, 0.2), rgba(30, 20, 12, 0.1)),
+    url("https://images.unsplash.com/photo-1525253086316-d0c936c814f8?auto=format&fit=crop&w=1400&q=80")
+      center/cover;
+}
+
+.promise-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.promise-card {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
+  padding: 14px;
+  display: grid;
+  gap: 8px;
+}
+
+.promise-card span {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(11, 122, 116, 0.15);
+  border: 1px solid rgba(11, 122, 116, 0.35);
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+}
+
+.promise-card p {
+  color: var(--muted);
+}
+
+.spotlight-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.spotlight-item {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--card);
+}
+
+.spotlight-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.spotlight-item div {
+  padding: 12px;
+  display: grid;
+  gap: 6px;
+}
+
+.spotlight-item p {
+  color: var(--muted);
 }
 
 .pet-card-body {
@@ -1093,6 +1215,12 @@ td {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .creative-banner,
+  .promise-grid,
+  .spotlight-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .pet-grid,
   .service-row,
   .photo-gallery-grid,
@@ -1100,6 +1228,9 @@ td {
   .testimonial-grid,
   .blog-grid,
   .partner-grid,
+  .creative-banner,
+  .promise-grid,
+  .spotlight-grid,
   .static-grid,
   .stories-grid,
   .auth-layout,

@@ -131,6 +131,25 @@ const staticSections = [
 
 const partnerLogos = ["Royal Canin", "Petco", "Zoetis", "Merck", "Felix", "Hill's"];
 
+const adoptionPromises = [
+  {
+    title: "Verified Owner Check",
+    text: "Every listing is reviewed for identity and responsible pet care information.",
+  },
+  {
+    title: "Health Transparency",
+    text: "Profiles include vaccination and health status for safer adoption decisions.",
+  },
+  {
+    title: "Fair Request Handling",
+    text: "Owners manage requests clearly and one approval locks the pet as adopted.",
+  },
+  {
+    title: "Supportive Community",
+    text: "Adopters, shelters, and pet owners connect through trusted communication.",
+  },
+];
+
 const categoryCards = [
   { name: "Bowls", image: "https://images.unsplash.com/photo-1583511655907-d34b81ad4e77?auto=format&fit=crop&w=500&q=80" },
   { name: "Toys", image: "https://images.unsplash.com/photo-1601758064223-638f28fdd8e2?auto=format&fit=crop&w=500&q=80" },
@@ -238,6 +257,42 @@ const Home = () => {
         ))}
       </section>
 
+      <section className="section container creative-banner">
+        <div className="creative-banner-copy">
+          <p className="hero-tag">Designed for Pet Adoption</p>
+          <h2>Not just browsing pets, building forever homes</h2>
+          <p>
+            PetNest focuses on safe matching, transparent owner communication, and caring pickup
+            planning so every adoption starts right.
+          </p>
+          <div className="hero-actions">
+            <Link to="/pets" className="btn btn-primary">
+              Meet Pets
+            </Link>
+            <Link to="/dashboard/my-requests" className="btn btn-outline">
+              My Requests
+            </Link>
+          </div>
+        </div>
+        <div className="creative-banner-photo" />
+      </section>
+
+      <section className="section section-soft">
+        <div className="container section-head">
+          <h2>Our Adoption Promise</h2>
+          <p>Four principles that keep adoptions safe, kind, and reliable.</p>
+        </div>
+        <div className="container promise-grid">
+          {adoptionPromises.map((item, index) => (
+            <article key={item.title} className="promise-card">
+              <span>0{index + 1}</span>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="section container">
         <div className="section-head">
           <h2>Featured Pets</h2>
@@ -328,6 +383,24 @@ const Home = () => {
               <div>
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section container spotlight-section">
+        <div className="section-head">
+          <h2>Rescue Spotlight Wall</h2>
+          <p>Creative highlights from pets and families beginning a new chapter.</p>
+        </div>
+        <div className="spotlight-grid">
+          {showcaseImages.slice(0, 4).map((item, index) => (
+            <article key={item.src} className="spotlight-item">
+              <img src={item.src} alt={item.alt} loading="lazy" />
+              <div>
+                <h4>Spotlight Story {index + 1}</h4>
+                <p>Every adopted pet starts with one thoughtful request and one caring family.</p>
               </div>
             </article>
           ))}
