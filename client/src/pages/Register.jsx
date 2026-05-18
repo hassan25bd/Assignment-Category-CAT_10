@@ -12,7 +12,6 @@ const Register = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    photoURL: "",
     password: "",
     confirmPassword: "",
   });
@@ -37,12 +36,15 @@ const Register = () => {
       await register({
         name: formData.name,
         email: formData.email,
-        photoURL: formData.photoURL,
         password: formData.password,
       });
       navigate("/login", { state: { from: redirectAfterLogin }, replace: true });
     } catch (error) {
-      toast.error(error.response?.data?.message || "Registration failed");
+      const backendMessage = error.response?.data?.message;
+      const fallbackMessage = error.request
+        ? "Registration failed. Server is unreachable. Check your API URL and server deployment."
+        : "Registration failed";
+      toast.error(backendMessage || fallbackMessage);
     }
   };
 
@@ -78,14 +80,6 @@ const Register = () => {
               required
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            />
-          </label>
-          <label>
-            Photo URL
-            <input
-              required
-              value={formData.photoURL}
-              onChange={(e) => setFormData({ ...formData, photoURL: e.target.value })}
             />
           </label>
           <label>
