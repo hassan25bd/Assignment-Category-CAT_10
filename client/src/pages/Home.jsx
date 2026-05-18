@@ -69,6 +69,36 @@ const storyCards = [
   },
 ];
 
+const serviceCards = [
+  {
+    title: "Location Finder",
+    text: "Find nearby pet-friendly shelters and adoption centers quickly.",
+    action: "Find Center",
+    to: "/pets",
+  },
+  {
+    title: "Pet Vending",
+    text: "Browse trusted supplies and care essentials during adoption planning.",
+    action: "Browse Supplies",
+    to: "/pets",
+  },
+  {
+    title: "Storefront",
+    text: "View pet listings, care details, and transparent owner information.",
+    action: "Explore Listings",
+    to: "/pets",
+  },
+];
+
+const categoryCards = [
+  { name: "Bowls", image: "https://images.unsplash.com/photo-1583511655907-d34b81ad4e77?auto=format&fit=crop&w=500&q=80" },
+  { name: "Toys", image: "https://images.unsplash.com/photo-1601758064223-638f28fdd8e2?auto=format&fit=crop&w=500&q=80" },
+  { name: "Food", image: "https://images.unsplash.com/photo-1589924691995-400dc9ecc119?auto=format&fit=crop&w=500&q=80" },
+  { name: "Scratchers", image: "https://images.unsplash.com/photo-1617083934551-21e757a461c5?auto=format&fit=crop&w=500&q=80" },
+  { name: "Houses", image: "https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=500&q=80" },
+  { name: "Accessories", image: "https://images.unsplash.com/photo-1613176747384-88969e4fdca6?auto=format&fit=crop&w=500&q=80" },
+];
+
 const adoptionSteps = [
   "Browse verified pet profiles",
   "Submit request from details page",
@@ -95,6 +125,15 @@ const Home = () => {
 
   return (
     <div>
+      <section className="top-strip">
+        <div className="top-strip-inner">
+          <p>You are one step away from your perfect pet companion</p>
+          <p>You are one step away from your perfect pet companion</p>
+          <p>You are one step away from your perfect pet companion</p>
+          <p>You are one step away from your perfect pet companion</p>
+        </div>
+      </section>
+
       <section className="hero">
         <div className="container hero-grid">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}>
@@ -131,9 +170,28 @@ const Home = () => {
           <div className="hero-gallery">
             <div className="hero-main-image" />
             <div className="hero-side-image" />
+            <div className="hero-review-card">
+              <h4>20k+ Customer reviews</h4>
+              <p>Families trust PetNest for transparent adoptions and pet care guidance.</p>
+              <Link to="/pets" className="btn btn-primary btn-sm">
+                View Pets
+              </Link>
+            </div>
             <p className="hero-credit">Photography from real rescue and companion pet moments.</p>
           </div>
         </div>
+      </section>
+
+      <section className="section container service-row">
+        {serviceCards.map((item) => (
+          <article key={item.title} className="service-card">
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+            <Link to={item.to} className="btn btn-outline btn-sm">
+              {item.action}
+            </Link>
+          </article>
+        ))}
       </section>
 
       <section className="section container">
@@ -161,6 +219,24 @@ const Home = () => {
           {showcaseImages.map((item) => (
             <article key={item.src} className="gallery-shot">
               <img src={item.src} alt={item.alt} loading="lazy" />
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section category-section">
+        <div className="container section-head">
+          <h2>We Love Your Furry Family Members</h2>
+          <p>Explore care categories to prepare a happy, healthy home.</p>
+        </div>
+        <div className="container category-grid">
+          {categoryCards.map((item) => (
+            <article key={item.name} className="category-card">
+              <img src={item.image} alt={item.name} loading="lazy" />
+              <h4>{item.name}</h4>
+              <Link to="/pets" className="btn btn-outline btn-sm">
+                Shop {item.name}
+              </Link>
             </article>
           ))}
         </div>
@@ -236,6 +312,67 @@ const Home = () => {
               </div>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="section section-soft testimonial-section">
+        <div className="container section-head">
+          <h2>We Deliver Heartfelt Pet Support</h2>
+          <p>Read what adopters are saying about the PetNest experience.</p>
+        </div>
+        <div className="container testimonial-grid">
+          <article className="testimonial-card">
+            <p>
+              We trust PetNest for all our pet needs. Their support team is responsive and every step in
+              the adoption process feels safe.
+            </p>
+            <h4>Stiven Dowson</h4>
+            <span>New York, NY</span>
+          </article>
+          <article className="testimonial-card">
+            <p>
+              PetNest gave us peace of mind during a tough time. We found the perfect dog and got clear
+              care advice from day one.
+            </p>
+            <h4>Mary Jones</h4>
+            <span>Atlanta, GA</span>
+          </article>
+        </div>
+      </section>
+
+      <section className="section container blog-section">
+        <div className="blog-head-grid">
+          <div>
+            <p className="hero-tag">Support your pet's health</p>
+            <h2>Explore our latest pet care posts</h2>
+          </div>
+          <p>
+            Get practical tips, wellness advice, and care stories that help you support your pet at every
+            stage.
+          </p>
+        </div>
+
+        <div className="blog-grid">
+          <article>
+            <img
+              src="https://images.unsplash.com/photo-1625460822294-9f7d7f3d53cb?auto=format&fit=crop&w=1200&q=80"
+              alt="Cat in cozy bed"
+            />
+            <h3>When to seek professional grooming or veterinary care</h3>
+            <Link to="/pets" className="btn btn-outline btn-sm">
+              Read More
+            </Link>
+          </article>
+          <article>
+            <img
+              src="https://images.unsplash.com/photo-1583512603806-077998240c7a?auto=format&fit=crop&w=1200&q=80"
+              alt="Dog eating healthy food"
+            />
+            <h3>Choosing the right grooming tools for your furry friend</h3>
+            <Link to="/pets" className="btn btn-outline btn-sm">
+              Read More
+            </Link>
+          </article>
         </div>
       </section>
     </div>
