@@ -5,165 +5,40 @@ import api from "../utils/api";
 import PetCard from "../components/PetCard";
 import Spinner from "../components/Spinner";
 
-const showcaseImages = [
-  {
-    src: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1200&q=80",
-    alt: "Happy dog in adoption center",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1511044568932-338cba0ad803?auto=format&fit=crop&w=1200&q=80",
-    alt: "Cute cat portrait",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1452570053594-1b985d6ea890?auto=format&fit=crop&w=1200&q=80",
-    alt: "Small bird close-up",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1583512603805-3cc6b41f3edb?auto=format&fit=crop&w=1200&q=80",
-    alt: "Golden puppy smiling",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=1200&q=80",
-    alt: "Relaxed cat at home",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=1200&q=80",
-    alt: "Rabbit on grass",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1505628346881-b72b27e84530?auto=format&fit=crop&w=1200&q=80",
-    alt: "Playful brown dog",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?auto=format&fit=crop&w=1200&q=80",
-    alt: "White cat with blue eyes",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1444464666168-49d633b86797?auto=format&fit=crop&w=1200&q=80",
-    alt: "Colorful parrot",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=1200&q=80",
-    alt: "Two puppies together",
-  },
-];
-
-const storyCards = [
-  {
-    title: "Milo found a sunny balcony home",
-    text: "After 42 days in foster care, Milo now spends mornings with his adopter and two rescued birds.",
-    image:
-      "https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?auto=format&fit=crop&w=1200&q=80",
-  },
-  {
-    title: "Tara became a therapy companion",
-    text: "A calm rabbit with a gentle temperament, Tara now supports children in a local learning center.",
-    image:
-      "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=1200&q=80",
-  },
-  {
-    title: "Rocky joined an active family",
-    text: "Rocky matched with first-time adopters through our owner verification and pickup scheduling flow.",
-    image:
-      "https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1200&q=80",
-  },
-];
-
 const serviceCards = [
   {
-    title: "Rescue Locator",
-    text: "Find nearby shelters and verified owners to begin safe adoptions.",
-    action: "Find Rescues",
-    to: "/pets",
+    title: "Adoption Matching",
+    text: "Find pets that fit your lifestyle, space, and family routine.",
     image:
       "https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&w=900&q=80",
   },
   {
-    title: "Home Readiness",
-    text: "Prepare your space with practical guidance before your new companion arrives.",
-    action: "Read Checklist",
-    to: "/pets",
+    title: "Rescue Support",
+    text: "Get trusted guidance on vet checks, behavior notes, and transitions.",
     image:
       "https://images.unsplash.com/photo-1603123853880-a92fafb7809f?auto=format&fit=crop&w=900&q=80",
   },
   {
-    title: "Trusted Profiles",
-    text: "Review health, behavior, and owner details before you request adoption.",
-    action: "Meet Pets",
-    to: "/pets",
+    title: "Forever Home Plan",
+    text: "Prepare your home before pickup and make the first week stress-free.",
     image:
       "https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd?auto=format&fit=crop&w=900&q=80",
   },
 ];
 
-const staticSections = [
-  {
-    title: "Why Adopt Pets",
-    text: "Adoption saves lives, reduces breeding pressure, and builds meaningful companionship.",
-    image:
-      "https://images.unsplash.com/photo-1537151764078-4cf2e8f3f2c9?auto=format&fit=crop&w=900&q=80",
-  },
-  {
-    title: "Success Stories",
-    text: "Read real journeys from adopters who found loyal friends and joyful homes.",
-    image:
-      "https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=900&q=80",
-  },
-  {
-    title: "Pet Care Tips",
-    text: "Get practical care guidance on feeding, grooming, and healthy routines.",
-    image:
-      "https://images.unsplash.com/photo-1568572933382-74d440642117?auto=format&fit=crop&w=900&q=80",
-  },
-  {
-    title: "Shelter Spotlight",
-    text: "Meet trusted shelters that focus on safe, transparent adoption workflows.",
-    image:
-      "https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8?auto=format&fit=crop&w=900&q=80",
-  },
-  {
-    title: "Volunteer Opportunities",
-    text: "Support local pet welfare through events, fostering, and community outreach.",
-    image:
-      "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=900&q=80",
-  },
-];
+const adoptionGroups = ["Dogs", "Cats", "Rabbits", "Birds", "Seniors", "Special Care"];
 
-const partnerLogos = ["Petfinder Network", "ASPCA", "Rescue Hub", "PetCare Trust", "AdoptTogether", "Local Shelters"];
-
-const adoptionPromises = [
+const stories = [
   {
-    title: "Verified Owner Check",
-    text: "Every listing is reviewed for identity and responsible pet care information.",
+    name: "Aisha Rahman",
+    city: "Dhaka",
+    text: "The adoption flow was easy and transparent. We found Bruno and brought him home in a week.",
   },
   {
-    title: "Health Transparency",
-    text: "Profiles include vaccination and health status for safer adoption decisions.",
+    name: "Sajid Hasan",
+    city: "Chattogram",
+    text: "Owner verification and status updates made us feel safe during the entire process.",
   },
-  {
-    title: "Fair Request Handling",
-    text: "Owners manage requests clearly and one approval locks the pet as adopted.",
-  },
-  {
-    title: "Supportive Community",
-    text: "Adopters, shelters, and pet owners connect through trusted communication.",
-  },
-];
-
-const categoryCards = [
-  { name: "Dogs", image: "https://images.unsplash.com/photo-1583511655907-d34b81ad4e77?auto=format&fit=crop&w=500&q=80" },
-  { name: "Cats", image: "https://images.unsplash.com/photo-1601758064223-638f28fdd8e2?auto=format&fit=crop&w=500&q=80" },
-  { name: "Rabbits", image: "https://images.unsplash.com/photo-1589924691995-400dc9ecc119?auto=format&fit=crop&w=500&q=80" },
-  { name: "Birds", image: "https://images.unsplash.com/photo-1617083934551-21e757a461c5?auto=format&fit=crop&w=500&q=80" },
-  { name: "Seniors", image: "https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=500&q=80" },
-  { name: "Special Care", image: "https://images.unsplash.com/photo-1613176747384-88969e4fdca6?auto=format&fit=crop&w=500&q=80" },
-];
-
-const adoptionSteps = [
-  "Browse verified pet profiles",
-  "Submit request from details page",
-  "Owner reviews and responds",
-  "Schedule pickup and welcome home",
 ];
 
 const Home = () => {
@@ -184,34 +59,34 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
-      <section className="top-strip">
-        <div className="top-strip-inner">
-          <p>BIG ADOPTION DRIVE TODAY • OPEN HEARTS • OPEN HOMES • HAPPY TAILS</p>
-          <p>BIG ADOPTION DRIVE TODAY • OPEN HEARTS • OPEN HOMES • HAPPY TAILS</p>
-          <p>BIG ADOPTION DRIVE TODAY • OPEN HEARTS • OPEN HOMES • HAPPY TAILS</p>
-          <p>BIG ADOPTION DRIVE TODAY • OPEN HEARTS • OPEN HOMES • HAPPY TAILS</p>
+    <div className="home-convert">
+      <section className="convert-topline">
+        <div className="convert-topline-inner">
+          <p>You are one step away from a forever pet friend</p>
+          <p>You are one step away from a forever pet friend</p>
+          <p>You are one step away from a forever pet friend</p>
+          <p>You are one step away from a forever pet friend</p>
         </div>
       </section>
 
-      <section className="hero">
-        <div className="container hero-grid">
-          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}>
-            <p className="hero-tag">Happy tails</p>
-            <h1>Making every rescue pet's life more comfortable</h1>
+      <section className="convert-hero">
+        <div className="container convert-hero-grid">
+          <motion.div className="convert-hero-copy" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}>
+            <p className="convert-kicker">Happy tails</p>
+            <h1>Making every rescued pet's life more comfortable</h1>
             <p>
-              Discover dogs, cats, birds, and rabbits from verified owners and shelters. Browse elegant
-              profiles, submit requests, and complete safe adoptions with confidence.
+              PetNest is a pet adoption platform where families meet verified pets, send requests,
+              and safely complete their adoption journey.
             </p>
-            <div className="hero-actions">
+            <div className="convert-actions">
               <Link to="/pets" className="btn btn-primary">
-                Adopt Now
+                View Pets
               </Link>
-              <Link to="/dashboard/add-pet" className="btn btn-outline">
-                List a Pet
+              <Link to="/dashboard/my-requests" className="btn btn-outline">
+                My Requests
               </Link>
             </div>
-            <div className="hero-metrics">
+            <div className="convert-metrics">
               <article>
                 <h3>1.2K+</h3>
                 <p>Happy adoptions</p>
@@ -227,81 +102,48 @@ const Home = () => {
             </div>
           </motion.div>
 
-          <div className="hero-gallery">
-            <div className="hero-main-image" />
-            <div className="hero-side-image" />
-            <div className="hero-review-card">
-              <h4>20k+ Community reviews</h4>
-              <p>Families trust PetNest for transparent adoptions and pet care guidance.</p>
-              <Link to="/pets" className="btn btn-primary btn-sm">
-                View Pets
-              </Link>
+          <div className="convert-hero-media">
+            <div className="convert-main-shot" />
+            <div className="convert-side-shot" />
+            <div className="convert-review-chip">
+              <h4>20k+ community reviews</h4>
+              <p>Trusted by adopters for safe and smooth pet adoption.</p>
             </div>
-            <p className="hero-credit">Photography from real rescue and companion pet moments.</p>
           </div>
         </div>
       </section>
 
-      <div className="wave-divider wave-light" />
+      <section className="convert-sale-strip">
+        <div className="convert-sale-track">
+          <p>BIG ADOPTION DRIVE TODAY</p>
+          <p>BIG ADOPTION DRIVE TODAY</p>
+          <p>BIG ADOPTION DRIVE TODAY</p>
+          <p>BIG ADOPTION DRIVE TODAY</p>
+        </div>
+      </section>
 
-      <section className="section container service-row">
+      <section className="section container convert-service-grid">
         {serviceCards.map((item) => (
-          <article key={item.title} className="service-card">
+          <article key={item.title} className="convert-service-card">
             <img src={item.image} alt={item.title} loading="lazy" />
             <h3>{item.title}</h3>
             <p>{item.text}</p>
-            <Link to={item.to} className="btn btn-outline btn-sm">
-              {item.action}
+            <Link to="/pets" className="btn btn-outline btn-sm">
+              Learn More
             </Link>
           </article>
         ))}
       </section>
 
-      <section className="section container creative-banner">
-        <div className="creative-banner-copy">
-          <p className="hero-tag">Designed for Pet Adoption</p>
-          <h2>Not just browsing pets, building forever homes</h2>
-          <p>
-            PetNest focuses on safe matching, transparent owner communication, and caring pickup
-            planning so every adoption starts right.
-          </p>
-          <div className="hero-actions">
-            <Link to="/pets" className="btn btn-primary">
-              Meet Pets
-            </Link>
-            <Link to="/dashboard/my-requests" className="btn btn-outline">
-              My Requests
-            </Link>
-          </div>
-        </div>
-        <div className="creative-banner-photo" />
-      </section>
-
-      <section className="section section-soft">
-        <div className="container section-head">
-          <h2>Our Adoption Promise</h2>
-          <p>Four principles that keep adoptions safe, kind, and reliable.</p>
-        </div>
-        <div className="container promise-grid">
-          {adoptionPromises.map((item, index) => (
-            <article key={item.title} className="promise-card">
-              <span>0{index + 1}</span>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section container">
-        <div className="section-head">
+      <section className="section container convert-pets-wrap">
+        <div className="section-head convert-head">
           <h2>Featured Pets</h2>
-          <p>Meet pets currently available for adoption.</p>
+          <p>Meet pets ready to be adopted today.</p>
         </div>
         {loading ? (
           <Spinner />
         ) : (
-          <div className="pet-grid">
+          <div className="pet-grid convert-pet-grid">
             {featuredPets.map((pet) => (
               <PetCard key={pet._id} pet={pet} />
             ))}
@@ -309,150 +151,59 @@ const Home = () => {
         )}
       </section>
 
-      <section className="section section-soft">
-        <div className="container section-head">
-          <h2>Pet Gallery</h2>
-          <p>10 real photos inspired by modern pet-shop style presentation.</p>
-        </div>
-        <div className="container photo-gallery-grid">
-          {showcaseImages.map((item) => (
-            <article key={item.src} className="gallery-shot">
-              <img src={item.src} alt={item.alt} loading="lazy" />
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section category-section">
-        <div className="container section-head">
-          <h2>Adopt by Companion Type</h2>
-          <p>Start your journey by exploring pets that match your lifestyle and home energy.</p>
-        </div>
-        <div className="container category-grid">
-          {categoryCards.map((item) => (
-            <article key={item.name} className="category-card">
-              <img src={item.image} alt={item.name} loading="lazy" />
-              <h4>{item.name}</h4>
-              <Link to="/pets" className="btn btn-outline btn-sm">
-                View {item.name}
-              </Link>
-            </article>
-          ))}
+      <section className="section convert-category-band">
+        <div className="container">
+          <div className="section-head convert-head">
+            <h2>Adopt by pet type</h2>
+            <p>Choose your preferred companion category and explore available pets.</p>
+          </div>
+          <div className="convert-category-grid">
+            {adoptionGroups.map((item) => (
+              <article key={item} className="convert-category-card">
+                <h4>{item}</h4>
+                <Link to="/pets" className="btn btn-outline btn-sm">
+                  Browse
+                </Link>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="section section-soft">
-        <div className="container static-grid">
-          {staticSections.map((item) => (
-            <article key={item.title} className="static-photo-card">
-              <img src={item.image} alt={item.title} loading="lazy" />
-              <h3>{item.title}</h3>
+      <section className="section convert-testimonials">
+        <div className="container section-head convert-head-light">
+          <h2>Happy tails from adopters</h2>
+          <p>Real feedback from families who adopted on PetNest.</p>
+        </div>
+        <div className="container convert-testimonial-grid">
+          {stories.map((item) => (
+            <article key={item.name} className="convert-testimonial-card">
               <p>{item.text}</p>
-              <Link to="/pets" className="btn btn-outline btn-sm">
-                Learn More
-              </Link>
+              <h4>{item.name}</h4>
+              <span>{item.city}</span>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="section container journey-section">
-        <div className="section-head">
-          <h2>Adoption Journey</h2>
-          <p>Clear process from discovery to pickup.</p>
-        </div>
-        <div className="journey-grid">
-          {adoptionSteps.map((step, index) => (
-            <article key={step}>
-              <span>0{index + 1}</span>
-              <h3>{step}</h3>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section container stories-section">
-        <div className="section-head">
-          <h2>Community Success Stories</h2>
-          <p>Recent moments shared by adopters and foster families.</p>
-        </div>
-        <div className="stories-grid">
-          {storyCards.map((item) => (
-            <article key={item.title} className="story-card">
-              <img src={item.image} alt={item.title} />
-              <div>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section container spotlight-section">
-        <div className="section-head">
-          <h2>Rescue Spotlight Wall</h2>
-          <p>Creative highlights from pets and families beginning a new chapter.</p>
-        </div>
-        <div className="spotlight-grid">
-          {showcaseImages.slice(0, 4).map((item, index) => (
-            <article key={item.src} className="spotlight-item">
-              <img src={item.src} alt={item.alt} loading="lazy" />
-              <div>
-                <h4>Spotlight Story {index + 1}</h4>
-                <p>Every adopted pet starts with one thoughtful request and one caring family.</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section section-soft testimonial-section">
-        <div className="container section-head">
-          <h2>Happy Tails, Real Adoption Stories</h2>
-          <p>Families share how PetNest helped them adopt with confidence and care.</p>
-        </div>
-        <div className="container testimonial-grid">
-          <article className="testimonial-card">
-            <p>
-              We trust PetNest for all our pet needs. Their support team is responsive and every step in
-              the adoption process feels safe.
-            </p>
-            <h4>Stiven Dowson</h4>
-            <span>New York, NY</span>
-          </article>
-          <article className="testimonial-card">
-            <p>
-              PetNest gave us peace of mind during a tough time. We found the perfect dog and got clear
-              care advice from day one.
-            </p>
-            <h4>Mary Jones</h4>
-            <span>Atlanta, GA</span>
-          </article>
-        </div>
-      </section>
-
-      <div className="wave-divider wave-light" />
-
-      <section className="section container blog-section">
-        <div className="blog-head-grid">
+      <section className="section container convert-blog">
+        <div className="blog-head-grid convert-head">
           <div>
-            <p className="hero-tag">Support your pet's health</p>
-            <h2>Explore our latest pet care posts</h2>
+            <p className="convert-kicker">Adoption Tips</p>
+            <h2>Guides for your first weeks together</h2>
           </div>
           <p>
-            Get practical tips, wellness advice, and care stories that help you support your pet at every
-            stage.
+            Learn about health checks, behavior, and routines to help your adopted pet settle in.
           </p>
         </div>
 
-        <div className="blog-grid">
+        <div className="blog-grid convert-blog-grid">
           <article>
             <img
               src="https://images.unsplash.com/photo-1625460822294-9f7d7f3d53cb?auto=format&fit=crop&w=1200&q=80"
               alt="Cat in cozy bed"
             />
-            <h3>When to seek professional grooming or veterinary care</h3>
+            <h3>Preparing your home before your adopted pet arrives</h3>
             <Link to="/pets" className="btn btn-outline btn-sm">
               Read More
             </Link>
@@ -462,7 +213,7 @@ const Home = () => {
               src="https://images.unsplash.com/photo-1583512603806-077998240c7a?auto=format&fit=crop&w=1200&q=80"
               alt="Dog eating healthy food"
             />
-            <h3>Choosing the right grooming tools for your furry friend</h3>
+            <h3>How to build trust with your new rescue in the first 7 days</h3>
             <Link to="/pets" className="btn btn-outline btn-sm">
               Read More
             </Link>
@@ -470,9 +221,9 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="partner-strip">
-        <div className="container partner-grid">
-          {partnerLogos.map((logo) => (
+      <section className="convert-partner-band">
+        <div className="container convert-partner-grid">
+          {["Rescue Alliance", "Pet Health BD", "Foster Circle", "Safe Paws", "Adopt Local", "Shelter Link"].map((logo) => (
             <p key={logo}>{logo}</p>
           ))}
         </div>
