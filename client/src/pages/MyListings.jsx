@@ -105,8 +105,12 @@ const MyListings = () => {
   if (loading) return <Spinner />;
 
   return (
-    <section>
-      <h2>My Listings</h2>
+    <section className="dashboard-premium-shell">
+      <div className="dashboard-premium-head listings-head">
+        <h2>My Listings</h2>
+        <p>Manage your pets, review requests, and update availability status.</p>
+      </div>
+
       <div className="stats-grid">
         <article>
           <h3>Total Listings</h3>

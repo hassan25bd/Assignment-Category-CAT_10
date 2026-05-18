@@ -36,15 +36,21 @@ const AddPet = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="form-card">
-      <h2>Add Pet</h2>
-      <div className="form-grid">
-        <PetFormFields formData={formData} setFormData={setFormData} readOnlyOwnerEmail />
+    <section className="dashboard-premium-shell">
+      <div className="dashboard-premium-head addpet-head">
+        <h2>Add Pet Listing</h2>
+        <p>Create a complete listing with health, location, and adoption details.</p>
       </div>
-      <button className="btn btn-primary" type="submit">
-        Save Listing
-      </button>
-    </form>
+
+      <form onSubmit={handleSubmit} className="form-card dashboard-form-card">
+        <div className="form-grid">
+          <PetFormFields formData={formData} setFormData={setFormData} readOnlyOwnerEmail />
+        </div>
+        <button className="btn btn-primary" type="submit">
+          Save Listing
+        </button>
+      </form>
+    </section>
   );
 };
 

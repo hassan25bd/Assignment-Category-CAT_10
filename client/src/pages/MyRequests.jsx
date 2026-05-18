@@ -34,9 +34,13 @@ const MyRequests = () => {
   if (loading) return <Spinner />;
 
   return (
-    <section>
-      <h2>My Requests</h2>
-      <div className="table-wrap">
+    <section className="dashboard-premium-shell">
+      <div className="dashboard-premium-head requests-head">
+        <h2>My Requests</h2>
+        <p>Track pending, approved, and rejected requests in one place.</p>
+      </div>
+
+      <div className="table-wrap dashboard-table-wrap">
         <table>
           <thead>
             <tr>
@@ -48,22 +52,30 @@ const MyRequests = () => {
             </tr>
           </thead>
           <tbody>
-            {requests.map((item) => (
-              <tr key={item._id}>
-                <td>{item.petName}</td>
-                <td>{new Date(item.requestDate).toLocaleDateString()}</td>
-                <td>{item.pickupDate}</td>
-                <td>{item.status}</td>
-                <td className="action-cell">
-                  <Link to={`/pets/${item.petId}`} className="btn btn-outline btn-sm">
-                    View
-                  </Link>
-                  <button className="btn btn-danger btn-sm" onClick={() => cancelRequest(item._id)}>
-                    Cancel
-                  </button>
+            {requests.length === 0 ? (
+              <tr>
+                <td colSpan="5" className="empty-cell">
+                  No requests yet.
                 </td>
               </tr>
-            ))}
+            ) : (
+              requests.map((item) => (
+                <tr key={item._id}>
+                  <td>{item.petName}</td>
+                  <td>{new Date(item.requestDate).toLocaleDateString()}</td>
+                  <td>{item.pickupDate}</td>
+                  <td>{item.status}</td>
+                  <td className="action-cell">
+                    <Link to={`/pets/${item.petId}`} className="btn btn-outline btn-sm">
+                      View
+                    </Link>
+                    <button className="btn btn-danger btn-sm" onClick={() => cancelRequest(item._id)}>
+                      Cancel
+                    </button>
+                  </td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </div>
