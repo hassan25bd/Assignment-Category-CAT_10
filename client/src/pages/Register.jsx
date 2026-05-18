@@ -48,7 +48,7 @@ const Register = () => {
     } catch (error) {
       const backendMessage = error.response?.data?.message;
       const fallbackMessage = error.request
-        ? "Registration failed because the backend is unreachable. Please check the deployed API URL."
+        ? "Registration failed because the backend is temporarily unavailable. Please try again."
         : "Registration failed";
       setSubmitError(backendMessage || fallbackMessage);
     } finally {
