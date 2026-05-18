@@ -6,7 +6,6 @@ import {
   auth,
   googleProvider,
   isFirebaseConfigured,
-  missingFirebaseEnvKeys,
 } from "../utils/firebase";
 
 const AuthContext = createContext(null);
@@ -43,9 +42,7 @@ export const AuthProvider = ({ children }) => {
 
   const loginWithGoogle = async () => {
     if (!isFirebaseConfigured || !auth || !googleProvider) {
-      throw new Error(
-        `Firebase is not configured. Missing: ${missingFirebaseEnvKeys.join(", ") || "VITE_FIREBASE_*"}`
-      );
+      throw new Error("Google login is unavailable right now. Please use email and password login.");
     }
 
     const result = await signInWithPopup(auth, googleProvider);

@@ -1117,6 +1117,14 @@ p {
   background: rgba(247, 200, 67, 0.2);
 }
 
+.firebase-warning-detail {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  opacity: 0.9;
+  word-break: break-word;
+}
+
 .form-card {
   display: grid;
   gap: 12px;
@@ -1344,6 +1352,14 @@ td {
   margin-top: 18px;
   text-align: center;
   color: rgba(255, 235, 235, 0.88);
+}
+
+.site-signature {
+  margin-top: 6px;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  color: rgba(247, 216, 121, 0.95);
 }
 
 .spinner-wrap {

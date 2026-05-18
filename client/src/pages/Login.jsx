@@ -9,6 +9,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const redirectTo = location.state?.from || "/";
+  const showFirebaseDebugInfo = import.meta.env.DEV;
 
   const [formData, setFormData] = useState({
     email: "",
@@ -83,7 +84,12 @@ const Login = () => {
           </button>
           {!isFirebaseConfigured ? (
             <p className="firebase-warning">
-              Google login unavailable. Missing: {missingFirebaseEnvKeys.join(", ")}
+              Google login is currently unavailable for this deployment. Please use email and password login.
+              {showFirebaseDebugInfo && missingFirebaseEnvKeys.length ? (
+                <span className="firebase-warning-detail">
+                  Missing in local env: {missingFirebaseEnvKeys.join(", ")}
+                </span>
+              ) : null}
             </p>
           ) : null}
           <p>
