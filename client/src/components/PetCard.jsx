@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
+import { useWishlist } from "../context/WishlistContext";
+import { motion } from "framer-motion";
 
 const PetCard = ({ pet }) => {
   const speciesClass = `species-${(pet.species || "pet").toLowerCase()}`;
+  const { isInWishlist, addToWishlist, removeFromWishlist } = useWishlist();
+  const inWishlist = isInWishlist(pet._id);
 
   const getSpeciesEmoji = (species) => {
     const emojis = {
@@ -19,8 +23,42 @@ const PetCard = ({ pet }) => {
     e.target.src = `https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=400&q=80`;
   };
 
+  const toggleWishlist = () => {
+    if (inWishlist) {
+      removeFromWishlist(pet._id);
+    } else {
+      addToWishlist(pet);
+    }
+  };
+
   return (
-    <article className={`pet-card ${speciesClass}`}>
+    <article className={`pet-card ${speciesClass}`} style={{ position: "relative" }}>
+      {/* Wishlist Button */}
+      <motion.button
+        onClick={toggleWishlist}
+        style={{
+          position: "absolute",
+          top: "12px",
+          left: "12px",
+          zIndex: "11",
+          width: "40px",
+          height: "40px",
+          borderRadius: "50%",
+          border: "none",
+          background: inWishlist ? "rgba(190, 24, 93, 0.2)" : "rgba(255, 255, 255, 0.9)",
+          cursor: "pointer",
+          display: "grid",
+          placeItems: "center",
+          fontSize: "20px",
+          transition: "all 0.25s ease",
+        }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        title={inWishlist ? "Remove from wishlist" : "Add to wishlist"}
+      >
+        {inWishlist ? "❤️" : "🤍"}
+      </motion.button>
+
       {/* Status Badge */}
       <div
         className={`status-ribbon ${pet.status === "adopted" ? "adopted" : "available"}`}

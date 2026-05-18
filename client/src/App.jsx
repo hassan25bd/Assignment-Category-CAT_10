@@ -11,6 +11,7 @@ import AddPet from "./pages/AddPet";
 import MyRequests from "./pages/MyRequests";
 import MyListings from "./pages/MyListings";
 import DashboardHome from "./pages/DashboardHome";
+import Wishlist from "./pages/Wishlist";
 import NotFound from "./pages/NotFound";
 
 const router = createBrowserRouter([
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: "pets", element: <AllPets /> },
       { path: "all-pets", element: <AllPets /> },
+      { path: "wishlist", element: <Wishlist /> },
       {
         path: "pets/:id",
         element: (
