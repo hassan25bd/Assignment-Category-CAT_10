@@ -34,6 +34,9 @@ const Navbar = () => {
           <NavLink to="/pets" onClick={closeMenu}>
             All Pets
           </NavLink>
+          <NavLink to="/wishlist" onClick={closeMenu}>
+            ❤️ Wishlist
+          </NavLink>
           <NavLink to="/dashboard/my-requests" onClick={closeMenu}>
             My Requests
           </NavLink>
