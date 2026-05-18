@@ -2,14 +2,13 @@ import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useAuth } from "../context/AuthContext";
-import { isFirebaseConfigured, missingFirebaseEnvKeys } from "../utils/firebase";
+import { isFirebaseConfigured } from "../utils/firebase";
 
 const Login = () => {
   const { login, loginWithGoogle } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const redirectTo = location.state?.from || "/";
-  const showFirebaseDebugInfo = import.meta.env.DEV;
 
   const [formData, setFormData] = useState({
     email: "",
@@ -73,24 +72,10 @@ const Login = () => {
           <button type="submit" className="btn btn-primary">
             Login
           </button>
-          <button
-            type="button"
-            className="btn btn-outline google-btn"
-            onClick={handleGoogleLogin}
-            disabled={!isFirebaseConfigured}
-            title={!isFirebaseConfigured ? "Configure Firebase env variables in Vercel" : ""}
-          >
-            Continue with Google
-          </button>
-          {!isFirebaseConfigured ? (
-            <p className="firebase-warning">
-              Google login is currently unavailable for this deployment. Please use email and password login.
-              {showFirebaseDebugInfo && missingFirebaseEnvKeys.length ? (
-                <span className="firebase-warning-detail">
-                  Missing in local env: {missingFirebaseEnvKeys.join(", ")}
-                </span>
-              ) : null}
-            </p>
+          {isFirebaseConfigured ? (
+            <button type="button" className="btn btn-outline google-btn" onClick={handleGoogleLogin}>
+              Continue with Google
+            </button>
           ) : null}
           <p>
             New here? <Link to="/register">Register</Link>
