@@ -188,7 +188,9 @@ p {
   z-index: 50;
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
-  background: rgba(245, 241, 232, 0.82);
+  background:
+    linear-gradient(to right, rgba(247, 250, 246, 0.9), rgba(255, 245, 209, 0.9)),
+    rgba(245, 241, 232, 0.82);
 }
 
 :root[data-theme="dark"] .navbar {
@@ -216,8 +218,9 @@ p {
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: var(--brand);
-  color: #fff;
+  background: linear-gradient(135deg, var(--brand), var(--accent));
+  color: #1f1b16;
+  font-weight: 800;
 }
 
 .nav-links {
@@ -229,10 +232,22 @@ p {
 .nav-links a {
   color: var(--muted);
   font-weight: 600;
+  position: relative;
 }
 
 .nav-links .active {
   color: var(--ink);
+}
+
+.nav-links .active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(to right, var(--brand), var(--accent));
 }
 
 .nav-actions {
@@ -302,8 +317,8 @@ p {
 }
 
 .theme-toggle {
-  background: transparent;
-  border: 1px solid var(--line);
+  background: rgba(30, 167, 182, 0.1);
+  border: 1px solid rgba(30, 167, 182, 0.3);
   color: var(--ink);
   border-radius: 10px;
   padding: 8px 10px;
@@ -1272,12 +1287,15 @@ td {
   border-top: 1px solid var(--line);
   padding: 34px 0 18px;
   margin-top: 0;
-  background: #3d2128;
-  color: #f8ecec;
+  background:
+    radial-gradient(circle at 8% 16%, rgba(247, 200, 67, 0.24), transparent 34%),
+    radial-gradient(circle at 88% 85%, rgba(30, 167, 182, 0.25), transparent 36%),
+    #173843;
+  color: #f5f7f4;
 }
 
 :root[data-theme="dark"] .footer {
-  background: #2a161b;
+  background: #102931;
 }
 
 .footer a,
@@ -1296,6 +1314,29 @@ td {
 .footer-grid div {
   display: grid;
   gap: 6px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.footer-topline {
+  margin-bottom: 14px;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: #f7d879;
+}
+
+.footer-kicker {
+  width: fit-content;
+  border-radius: 999px;
+  background: rgba(247, 200, 67, 0.28);
+  border: 1px solid rgba(247, 200, 67, 0.5);
+  padding: 4px 10px;
+  color: #f7e8b8;
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .copyright {
