@@ -5,6 +5,49 @@ import api from "../utils/api";
 import PetCard from "../components/PetCard";
 import Spinner from "../components/Spinner";
 
+const showcaseImages = [
+  {
+    src: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1200&q=80",
+    alt: "Happy dog in adoption center",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1511044568932-338cba0ad803?auto=format&fit=crop&w=1200&q=80",
+    alt: "Cute cat portrait",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1452570053594-1b985d6ea890?auto=format&fit=crop&w=1200&q=80",
+    alt: "Small bird close-up",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1583512603805-3cc6b41f3edb?auto=format&fit=crop&w=1200&q=80",
+    alt: "Golden puppy smiling",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=1200&q=80",
+    alt: "Relaxed cat at home",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=1200&q=80",
+    alt: "Rabbit on grass",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1505628346881-b72b27e84530?auto=format&fit=crop&w=1200&q=80",
+    alt: "Playful brown dog",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?auto=format&fit=crop&w=1200&q=80",
+    alt: "White cat with blue eyes",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1444464666168-49d633b86797?auto=format&fit=crop&w=1200&q=80",
+    alt: "Colorful parrot",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=1200&q=80",
+    alt: "Two puppies together",
+  },
+];
+
 const storyCards = [
   {
     title: "Milo found a sunny balcony home",
@@ -55,11 +98,11 @@ const Home = () => {
       <section className="hero">
         <div className="container hero-grid">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}>
-            <p className="hero-tag">Real rescues. Real stories. Real homes.</p>
-            <h1>Adopt with confidence from trusted owners and shelters</h1>
+            <p className="hero-tag">PetNest Premium Adoption</p>
+            <h1>Find healthy, lovable pets and welcome joy into your home</h1>
             <p>
-              PetNest connects adopters with pets that need a second chance. Every listing includes
-              health details, vaccination status, and transparent adoption requests.
+              Discover dogs, cats, birds, and rabbits from verified owners and shelters. Browse elegant
+              profiles, submit requests, and complete safe adoptions with confidence.
             </p>
             <div className="hero-actions">
               <Link to="/pets" className="btn btn-primary">
@@ -71,16 +114,16 @@ const Home = () => {
             </div>
             <div className="hero-metrics">
               <article>
-                <h3>800+</h3>
-                <p>Successful adoptions</p>
+                <h3>1.2K+</h3>
+                <p>Happy adoptions</p>
               </article>
               <article>
-                <h3>120+</h3>
-                <p>Active verified listings</p>
+                <h3>240+</h3>
+                <p>Premium listings</p>
               </article>
               <article>
-                <h3>96%</h3>
-                <p>Positive adopter feedback</p>
+                <h3>99%</h3>
+                <p>Owner trust score</p>
               </article>
             </div>
           </motion.div>
@@ -107,6 +150,20 @@ const Home = () => {
             ))}
           </div>
         )}
+      </section>
+
+      <section className="section section-soft">
+        <div className="container section-head">
+          <h2>Pet Gallery</h2>
+          <p>10 real photos inspired by modern pet-shop style presentation.</p>
+        </div>
+        <div className="container photo-gallery-grid">
+          {showcaseImages.map((item) => (
+            <article key={item.src} className="gallery-shot">
+              <img src={item.src} alt={item.alt} loading="lazy" />
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="section section-soft">
