@@ -75,20 +75,61 @@ const serviceCards = [
     text: "Find nearby pet-friendly shelters and adoption centers quickly.",
     action: "Find Center",
     to: "/pets",
+    image:
+      "https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&w=900&q=80",
   },
   {
     title: "Pet Vending",
     text: "Browse trusted supplies and care essentials during adoption planning.",
     action: "Browse Supplies",
     to: "/pets",
+    image:
+      "https://images.unsplash.com/photo-1603123853880-a92fafb7809f?auto=format&fit=crop&w=900&q=80",
   },
   {
     title: "Storefront",
     text: "View pet listings, care details, and transparent owner information.",
     action: "Explore Listings",
     to: "/pets",
+    image:
+      "https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd?auto=format&fit=crop&w=900&q=80",
   },
 ];
+
+const staticSections = [
+  {
+    title: "Why Adopt Pets",
+    text: "Adoption saves lives, reduces breeding pressure, and builds meaningful companionship.",
+    image:
+      "https://images.unsplash.com/photo-1537151764078-4cf2e8f3f2c9?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    title: "Success Stories",
+    text: "Read real journeys from adopters who found loyal friends and joyful homes.",
+    image:
+      "https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    title: "Pet Care Tips",
+    text: "Get practical care guidance on feeding, grooming, and healthy routines.",
+    image:
+      "https://images.unsplash.com/photo-1568572933382-74d440642117?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    title: "Shelter Spotlight",
+    text: "Meet trusted shelters that focus on safe, transparent adoption workflows.",
+    image:
+      "https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    title: "Volunteer Opportunities",
+    text: "Support local pet welfare through events, fostering, and community outreach.",
+    image:
+      "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=900&q=80",
+  },
+];
+
+const partnerLogos = ["Royal Canin", "Petco", "Zoetis", "Merck", "Felix", "Hill's"];
 
 const categoryCards = [
   { name: "Bowls", image: "https://images.unsplash.com/photo-1583511655907-d34b81ad4e77?auto=format&fit=crop&w=500&q=80" },
@@ -185,6 +226,7 @@ const Home = () => {
       <section className="section container service-row">
         {serviceCards.map((item) => (
           <article key={item.title} className="service-card">
+            <img src={item.image} alt={item.title} loading="lazy" />
             <h3>{item.title}</h3>
             <p>{item.text}</p>
             <Link to={item.to} className="btn btn-outline btn-sm">
@@ -244,41 +286,16 @@ const Home = () => {
 
       <section className="section section-soft">
         <div className="container static-grid">
-          <article>
-            <h3>Why Adopt Pets</h3>
-            <p>
-              Adoption saves lives, reduces breeding pressure, and creates lasting companionship that
-              benefits both pets and families.
-            </p>
-          </article>
-          <article>
-            <h3>Success Stories</h3>
-            <p>
-              Read real journeys from adopters who found loyal friends and gave rescued pets a stable,
-              caring home.
-            </p>
-          </article>
-          <article>
-            <h3>Pet Care Tips</h3>
-            <p>
-              Learn daily routines, nutrition basics, grooming guidance, and behavior tips for healthy,
-              happy pets.
-            </p>
-          </article>
-          <article>
-            <h3>Shelter Spotlight</h3>
-            <p>
-              Discover partner shelters with transparent care practices and professional screening for
-              each adoption.
-            </p>
-          </article>
-          <article>
-            <h3>Volunteer Opportunities</h3>
-            <p>
-              Join local initiatives to foster pets, support events, and improve pet welfare in your
-              community.
-            </p>
-          </article>
+          {staticSections.map((item) => (
+            <article key={item.title} className="static-photo-card">
+              <img src={item.image} alt={item.title} loading="lazy" />
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+              <Link to="/pets" className="btn btn-outline btn-sm">
+                Learn More
+              </Link>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -373,6 +390,14 @@ const Home = () => {
               Read More
             </Link>
           </article>
+        </div>
+      </section>
+
+      <section className="partner-strip">
+        <div className="container partner-grid">
+          {partnerLogos.map((logo) => (
+            <p key={logo}>{logo}</p>
+          ))}
         </div>
       </section>
     </div>

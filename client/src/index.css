@@ -393,6 +393,13 @@ p {
   gap: 10px;
 }
 
+.service-card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
 .service-card p {
   color: var(--muted);
 }
@@ -508,6 +515,17 @@ p {
   padding: 16px;
   display: grid;
   gap: 10px;
+}
+
+.static-photo-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.static-photo-card p {
+  color: var(--muted);
 }
 
 .journey-grid {
@@ -632,6 +650,26 @@ p {
 .blog-grid h3,
 .blog-grid .btn {
   margin-inline: 12px;
+}
+
+.partner-strip {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 24px 0;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.partner-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.partner-grid p {
+  text-align: center;
+  color: #9b9387;
+  font-weight: 700;
+  letter-spacing: 0.4px;
 }
 
 .filters {
@@ -968,6 +1006,7 @@ td {
   .category-grid,
   .testimonial-grid,
   .blog-grid,
+  .partner-grid,
   .static-grid,
   .stories-grid,
   .auth-layout,
@@ -1021,6 +1060,7 @@ td {
   .category-grid,
   .testimonial-grid,
   .blog-grid,
+  .partner-grid,
   .static-grid,
   .stories-grid,
   .auth-layout,
