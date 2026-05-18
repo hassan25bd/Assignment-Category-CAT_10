@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useAuth } from "../context/AuthContext";
+import { isFirebaseConfigured, missingFirebaseEnvKeys } from "../utils/firebase";
 
 const Login = () => {
   const { login, loginWithGoogle } = useAuth();
@@ -58,9 +59,20 @@ const Login = () => {
         <button type="submit" className="btn btn-primary">
           Login
         </button>
-        <button type="button" className="btn btn-outline" onClick={handleGoogleLogin}>
+        <button
+          type="button"
+          className="btn btn-outline"
+          onClick={handleGoogleLogin}
+          disabled={!isFirebaseConfigured}
+          title={!isFirebaseConfigured ? "Configure Firebase env variables in Vercel" : ""}
+        >
           Continue with Google
         </button>
+        {!isFirebaseConfigured ? (
+          <p style={{ color: "#b45309", fontSize: "14px" }}>
+            Google login unavailable. Missing: {missingFirebaseEnvKeys.join(", ")}
+          </p>
+        ) : null}
         <p>
           New here? <Link to="/register">Register</Link>
         </p>

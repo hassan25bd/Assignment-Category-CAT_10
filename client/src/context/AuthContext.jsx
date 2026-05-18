@@ -2,7 +2,12 @@ import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import toast from "react-hot-toast";
 import { signInWithPopup, signOut } from "firebase/auth";
 import api from "../utils/api";
-import { auth, googleProvider, isFirebaseConfigured } from "../utils/firebase";
+import {
+  auth,
+  googleProvider,
+  isFirebaseConfigured,
+  missingFirebaseEnvKeys,
+} from "../utils/firebase";
 
 const AuthContext = createContext(null);
 
@@ -38,7 +43,9 @@ export const AuthProvider = ({ children }) => {
 
   const loginWithGoogle = async () => {
     if (!isFirebaseConfigured || !auth || !googleProvider) {
-      throw new Error("Firebase is not configured. Please set VITE_FIREBASE_* variables.");
+      throw new Error(
+        `Firebase is not configured. Missing: ${missingFirebaseEnvKeys.join(", ") || "VITE_FIREBASE_*"}`
+      );
     }
 
     const result = await signInWithPopup(auth, googleProvider);
