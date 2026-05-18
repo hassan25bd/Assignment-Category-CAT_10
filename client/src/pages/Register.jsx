@@ -8,6 +8,10 @@ const Register = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const redirectAfterLogin = location.state?.from || "/";
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -18,6 +22,7 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setSubmitError("");
 
     if (formData.password.length < 6) {
       return toast.error("Password must be at least 6 characters");
@@ -33,6 +38,7 @@ const Register = () => {
     }
 
     try {
+      setIsSubmitting(true);
       await register({
         name: formData.name,
         email: formData.email,
@@ -42,9 +48,11 @@ const Register = () => {
     } catch (error) {
       const backendMessage = error.response?.data?.message;
       const fallbackMessage = error.request
-        ? "Registration failed. Server is unreachable. Check your API URL and server deployment."
+        ? "Registration failed because the backend is unreachable. Please check the deployed API URL."
         : "Registration failed";
-      toast.error(backendMessage || fallbackMessage);
+      setSubmitError(backendMessage || fallbackMessage);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -84,24 +92,45 @@ const Register = () => {
           </label>
           <label>
             Password
-            <input
-              type="password"
-              required
-              value={formData.password}
-              onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-            />
+            <div className="password-field">
+              <input
+                type={showPassword ? "text" : "password"}
+                required
+                value={formData.password}
+                onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+              />
+              <button
+                type="button"
+                className="password-toggle"
+                onClick={() => setShowPassword((prev) => !prev)}
+                aria-label={showPassword ? "Hide password" : "Show password"}
+              >
+                {showPassword ? "Hide" : "Show"}
+              </button>
+            </div>
           </label>
           <label>
             Confirm Password
-            <input
-              type="password"
-              required
-              value={formData.confirmPassword}
-              onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
-            />
+            <div className="password-field">
+              <input
+                type={showConfirmPassword ? "text" : "password"}
+                required
+                value={formData.confirmPassword}
+                onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
+              />
+              <button
+                type="button"
+                className="password-toggle"
+                onClick={() => setShowConfirmPassword((prev) => !prev)}
+                aria-label={showConfirmPassword ? "Hide confirm password" : "Show confirm password"}
+              >
+                {showConfirmPassword ? "Hide" : "Show"}
+              </button>
+            </div>
           </label>
-          <button type="submit" className="btn btn-primary">
-            Register
+          {submitError ? <p className="form-error">{submitError}</p> : null}
+          <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
+            {isSubmitting ? "Registering..." : "Register"}
           </button>
           <p>
             Already have an account? <Link to="/login">Login</Link>
