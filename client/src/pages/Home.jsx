@@ -7,26 +7,51 @@ import Spinner from "../components/Spinner";
 
 const serviceCards = [
   {
-    title: "Adoption Matching",
-    text: "Find pets that fit your lifestyle, space, and family routine.",
-    image:
-      "https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&w=900&q=80",
+    title: "Dog Adoption",
+    text: "Find verified companions and complete a safe adoption journey with confidence.",
   },
   {
-    title: "Rescue Support",
-    text: "Get trusted guidance on vet checks, behavior notes, and transitions.",
-    image:
-      "https://images.unsplash.com/photo-1603123853880-a92fafb7809f?auto=format&fit=crop&w=900&q=80",
+    title: "Dog Breeding",
+    text: "Responsible matches, health checks, and transparent breeder guidance.",
   },
   {
-    title: "Forever Home Plan",
-    text: "Prepare your home before pickup and make the first week stress-free.",
-    image:
-      "https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd?auto=format&fit=crop&w=900&q=80",
+    title: "Dog Shelter",
+    text: "Support rescue shelters and help pets move from care into loving homes.",
   },
 ];
 
-const adoptionGroups = ["Dogs", "Cats", "Rabbits", "Birds", "Seniors", "Special Care"];
+const breedCards = [
+  {
+    name: "Samaya",
+    breed: "Samoyed",
+    image:
+      "https://images.unsplash.com/photo-1551717743-49959800b1f6?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    name: "Brody",
+    breed: "Siberian Husky",
+    image:
+      "https://images.unsplash.com/photo-1507149833265-60c372daea22?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    name: "Edgar",
+    breed: "Golden Retriever",
+    image:
+      "https://images.unsplash.com/photo-1552053831-71594a27c62d?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    name: "Bigela",
+    breed: "Beagle",
+    image:
+      "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    name: "Gerry",
+    breed: "German Shepherd",
+    image:
+      "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=900&q=80",
+  },
+];
 
 const stories = [
   {
@@ -41,27 +66,46 @@ const stories = [
   },
 ];
 
-// Animation variants
+const articleCards = [
+  {
+    category: "Groom",
+    title: "Give this Vitamin to your Dog to Make the Fur Glowing",
+    image:
+      "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    category: "Tips",
+    title: "This Is What You Need to Consider Before Adopt a Dog",
+    image:
+      "https://images.unsplash.com/photo-1450778869180-41d0601e046e?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    category: "Groom",
+    title: "Why Grooming Your Dog at Home is Important to do",
+    image:
+      "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=900&q=80",
+  },
+];
+
+const partnerLogos = ["Rescue Alliance", "Pet Health BD", "Foster Circle", "Safe Paws", "Adopt Local", "Shelter Link"];
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.2,
+      staggerChildren: 0.14,
+      delayChildren: 0.12,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 18 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.5,
-      ease: "easeOut",
-    },
+    transition: { duration: 0.5, ease: "easeOut" },
   },
 };
 
@@ -83,142 +127,161 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="home-convert">
-      <section className="convert-topline">
-        <div className="convert-topline-inner">
-          <p>You are one step away from a forever pet friend</p>
-          <p>You are one step away from a forever pet friend</p>
-          <p>You are one step away from a forever pet friend</p>
-          <p>You are one step away from a forever pet friend</p>
-        </div>
-      </section>
-
-      <section className="convert-hero">
-        <div className="container convert-hero-grid">
+    <div className="kintamani-home">
+      <section className="hero kintamani-hero">
+        <div className="container hero-grid kintamani-hero-grid">
           <motion.div
-            className="convert-hero-copy"
+            className="hero-copy kintamani-hero-copy"
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <motion.p
-              className="convert-kicker"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.1, duration: 0.5 }}
-            >
-              Happy tails
-            </motion.p>
-            <motion.h1
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-            >
-              Making every rescued pet's life more comfortable
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.5 }}
-            >
-              PetNest is a pet adoption platform where families meet verified pets, send requests,
-              and safely complete their adoption journey.
-            </motion.p>
-            <motion.div
-              className="convert-actions"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4, duration: 0.5 }}
-            >
+            <p className="hero-tag">Best Friend for Your Best Time</p>
+            <h1>Find your next pet companion with care, trust, and heart.</h1>
+            <p>
+              PetNest helps families discover verified pets, connect with owners, and complete a safe
+              adoption journey from first visit to forever home.
+            </p>
+            <div className="hero-actions">
               <Link to="/pets" className="btn btn-primary">
-                View Pets
+                Adopt Here
               </Link>
               <Link to="/dashboard/my-requests" className="btn btn-outline">
                 My Requests
               </Link>
-            </motion.div>
-            <motion.div
-              className="convert-metrics"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-              transition={{ delay: 0.5 }}
-            >
-              {[
-                { num: "1.2K+", label: "Happy adoptions" },
-                { num: "240+", label: "Premium listings" },
-                { num: "99%", label: "Owner trust score" },
-              ].map((item, i) => (
-                <motion.article key={i} variants={itemVariants}>
-                  <h3>{item.num}</h3>
-                  <p>{item.label}</p>
-                </motion.article>
-              ))}
-            </motion.div>
+            </div>
           </motion.div>
 
           <motion.div
-            className="convert-hero-media"
+            className="kintamani-hero-card"
             initial={{ opacity: 0, x: 24 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <div className="convert-main-shot" />
-            <div className="convert-side-shot" />
-            <motion.div
-              className="convert-review-chip"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.5 }}
-            >
-              <h4>20k+ community reviews</h4>
-              <p>Trusted by adopters for safe and smooth pet adoption.</p>
-            </motion.div>
+            <div className="hero-card-top">
+              <span className="hero-card-pill">Free Consultation</span>
+              <span className="hero-card-phone">(021) 231 - 2870</span>
+            </div>
+            <div className="hero-card-image" />
           </motion.div>
         </div>
       </section>
 
-      <section className="convert-sale-strip">
-        <div className="convert-sale-track">
-          <p>BIG ADOPTION DRIVE TODAY</p>
-          <p>BIG ADOPTION DRIVE TODAY</p>
-          <p>BIG ADOPTION DRIVE TODAY</p>
-          <p>BIG ADOPTION DRIVE TODAY</p>
-        </div>
-      </section>
-
-      <section className="section container">
-        <motion.div
-          className="convert-service-grid"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          {serviceCards.map((item) => (
-            <motion.article key={item.title} className="convert-service-card" variants={itemVariants}>
-              <img src={item.image} alt={item.title} loading="lazy" />
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
-              <Link to="/pets" className="btn btn-outline btn-sm">
-                Learn More
+      <section className="kintamani-service-band">
+        <div className="container service-row kintamani-service-row">
+          {serviceCards.map((card, index) => (
+            <motion.article
+              key={card.title}
+              className={`service-card kintamani-service-card ${index === 1 ? "is-elevated" : ""}`}
+              variants={itemVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              <div className="service-icon">🐾</div>
+              <h3>{card.title}</h3>
+              <p>{card.text}</p>
+              <Link to="/pets" className="learn-link">
+                Learn More →
               </Link>
             </motion.article>
           ))}
+        </div>
+      </section>
+
+      <section className="section container kintamani-about">
+        <motion.div
+          className="kintamani-about-grid"
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="kintamani-about-visual">
+            <div className="kintamani-paw-bg" />
+          </div>
+          <div className="kintamani-about-copy">
+            <p className="hero-tag">About Us</p>
+            <h2>Best Service to help more pets find loved homes</h2>
+            <p>
+              From adoption support to after-care guidance, PetNest offers a warm and trusted path for
+              families who want to welcome a pet with confidence.
+            </p>
+            <div className="kintamani-feature-grid">
+              <article>
+                <h4>Professional Breeder</h4>
+                <p>Verified owners, transparent pet profiles, and safe matches.</p>
+              </article>
+              <article>
+                <h4>Standard Quality</h4>
+                <p>Healthy pets, honest details, and a smooth adoption experience.</p>
+              </article>
+            </div>
+            <Link to="/pets" className="btn btn-primary">
+              About Us
+            </Link>
+          </div>
         </motion.div>
       </section>
 
+      <section className="section kintamani-breeds">
+        <div className="container">
+          <div className="section-head convert-head">
+            <p className="hero-tag">The Dogs</p>
+            <h2>Popular Dog Breeds</h2>
+            <p>Explore beautiful, adoptable breeds and discover who feels like home.</p>
+          </div>
+          <motion.div
+            className="kintamani-breed-stage"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
+            <motion.div
+              className="kintamani-breed-hero"
+              variants={itemVariants}
+            >
+              <img
+                src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?auto=format&fit=crop&w=1200&q=80"
+                alt="featured dog"
+              />
+            </motion.div>
+
+            {breedCards.map((breed) => (
+              <motion.article key={breed.name} className="kintamani-breed-spot" variants={itemVariants}>
+                <img src={breed.image} alt={breed.name} />
+                <span />
+              </motion.article>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="kintamani-stats-band">
+        <div className="container kintamani-stats-grid">
+          {[
+            { value: "50", label: "Participant" },
+            { value: "120", label: "Dog Adopted" },
+            { value: "35", label: "Experienced Breeder" },
+            { value: "20", label: "Year Experience" },
+          ].map((stat) => (
+            <article key={stat.label}>
+              <h3>
+                {stat.value} <span>+</span>
+              </h3>
+              <p>{stat.label}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="section container convert-pets-wrap">
-        <motion.div
-          className="section-head convert-head"
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <h2>Featured Pets</h2>
-          <p>Meet pets ready to be adopted today.</p>
-        </motion.div>
+        <div className="section-head convert-head">
+          <p className="hero-tag">Available for Adoption</p>
+          <h2>Dogs ready to meet their forever families</h2>
+          <p>Browse fresh listings and request adoption directly from trusted owners.</p>
+        </div>
         {loading ? (
           <Spinner />
         ) : (
@@ -238,41 +301,11 @@ const Home = () => {
         )}
       </section>
 
-      <section className="section convert-category-band">
-        <div className="container">
-          <motion.div
-            className="section-head convert-head"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <h2>Adopt by pet type</h2>
-            <p>Choose your preferred companion category and explore available pets.</p>
-          </motion.div>
-          <motion.div
-            className="convert-category-grid"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-          >
-            {adoptionGroups.map((item) => (
-              <motion.article key={item} className="convert-category-card" variants={itemVariants}>
-                <h4>{item}</h4>
-                <Link to="/pets" className="btn btn-outline btn-sm">
-                  Browse
-                </Link>
-              </motion.article>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      <section className="section convert-testimonials">
+      <section className="section kintamani-testimonials">
         <div className="container section-head convert-head-light">
-          <h2>Happy tails from adopters</h2>
-          <p>Real feedback from families who adopted on PetNest.</p>
+          <p className="hero-tag">Client Feedback</p>
+          <h2>Our Client Testimonial</h2>
+          <p>Real feedback from adopters who found their match on PetNest.</p>
         </div>
         <motion.div
           className="container convert-testimonial-grid"
@@ -291,22 +324,28 @@ const Home = () => {
         </motion.div>
       </section>
 
-      <section className="section container convert-blog">
-        <motion.div
-          className="blog-head-grid convert-head"
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
+      <section className="kintamani-cta-band">
+        <div className="container kintamani-cta-grid">
           <div>
-            <p className="convert-kicker">Adoption Tips</p>
-            <h2>Guides for your first weeks together</h2>
+            <p className="hero-tag">Find Your Dog</p>
+            <h2>Dogs Are Not Our Whole Life, but They Make Our Life Whole</h2>
+          </div>
+          <Link to="/pets" className="btn btn-primary">
+            Contact Us
+          </Link>
+        </div>
+      </section>
+
+      <section className="section container convert-blog">
+        <div className="blog-head-grid convert-head">
+          <div>
+            <p className="hero-tag">Our News</p>
+            <h2>News &amp; Article</h2>
           </div>
           <p>
-            Learn about health checks, behavior, and routines to help your adopted pet settle in.
+            Tips and updates for grooming, adoption prep, and helping a new pet settle in comfortably.
           </p>
-        </motion.div>
+        </div>
 
         <motion.div
           className="blog-grid convert-blog-grid"
@@ -315,28 +354,38 @@ const Home = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
         >
-          {[
-            {
-              img: "https://images.unsplash.com/photo-1625460822294-9f7d7f3d53cb?auto=format&fit=crop&w=1200&q=80",
-              title: "Preparing your home before your adopted pet arrives",
-            },
-            {
-              img: "https://images.unsplash.com/photo-1583512603806-077998240c7a?auto=format&fit=crop&w=1200&q=80",
-              title: "How to build trust with your new rescue in the first 7 days",
-            },
-          ].map((blog, i) => (
-            <motion.article key={i} className="blog-article" variants={itemVariants}>
-              <img src={blog.img} alt={blog.title} loading="lazy" />
-              <h3>{blog.title}</h3>
-              <Link to="/pets" className="btn btn-outline btn-sm">
-                Read More
+          {articleCards.map((article) => (
+            <motion.article key={article.title} className="blog-article kintamani-article" variants={itemVariants}>
+              <div className="kintamani-article-media">
+                <img src={article.image} alt={article.title} loading="lazy" />
+                <span>{article.category}</span>
+              </div>
+              <h3>{article.title}</h3>
+              <p>Learn more about what makes a safe, prepared, and loving adoption journey work.</p>
+              <Link to="/pets" className="learn-link">
+                Read More →
               </Link>
             </motion.article>
           ))}
         </motion.div>
       </section>
 
-      <section className="convert-partner-band">
+      <section className="kintamani-newsletter-band">
+        <div className="container kintamani-newsletter">
+          <div>
+            <p className="hero-tag">Keep Updated</p>
+            <h2>Newsletter</h2>
+          </div>
+          <form className="kintamani-newsletter-form">
+            <input type="email" placeholder="Email" aria-label="Email" />
+            <button type="button" className="btn btn-outline">
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <section className="kintamani-partner-band">
         <motion.div
           className="container convert-partner-grid"
           variants={containerVariants}
@@ -344,7 +393,7 @@ const Home = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {["Rescue Alliance", "Pet Health BD", "Foster Circle", "Safe Paws", "Adopt Local", "Shelter Link"].map((logo) => (
+          {partnerLogos.map((logo) => (
             <motion.p key={logo} variants={itemVariants}>
               {logo}
             </motion.p>
