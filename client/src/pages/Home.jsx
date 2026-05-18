@@ -223,6 +223,8 @@ const Home = () => {
         </div>
       </section>
 
+      <div className="wave-divider wave-light" />
+
       <section className="section container service-row">
         {serviceCards.map((item) => (
           <article key={item.title} className="service-card">
@@ -356,6 +358,8 @@ const Home = () => {
           </article>
         </div>
       </section>
+
+      <div className="wave-divider wave-light" />
 
       <section className="section container blog-section">
         <div className="blog-head-grid">
