@@ -72,10 +72,11 @@ const Login = () => {
           <button type="submit" className="btn btn-primary">
             Login
           </button>
-          {isFirebaseConfigured ? (
-            <button type="button" className="btn btn-outline google-btn" onClick={handleGoogleLogin}>
-              Continue with Google
-            </button>
+          <button type="button" className="btn btn-outline google-btn" onClick={handleGoogleLogin}>
+            Continue with Google
+          </button>
+          {!isFirebaseConfigured ? (
+            <p className="auth-note">Google login will work after Firebase keys are added in Vercel.</p>
           ) : null}
           <p>
             New here? <Link to="/register">Register</Link>
