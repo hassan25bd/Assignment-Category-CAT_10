@@ -3,6 +3,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const verifyToken = require("../middleware/verifyToken");
 const tokenOptions = require("../config/tokenOptions");
+const getFirebaseAdmin = require("../config/firebaseAdmin");
 
 const createAuthRoutes = ({ usersCollection }) => {
   const router = express.Router();
@@ -33,9 +34,25 @@ const createAuthRoutes = ({ usersCollection }) => {
   });
 
   router.post("/google", async (req, res) => {
-    const { name, email, photoURL } = req.body;
-    if (!name || !email) {
-      return res.status(400).json({ message: "Missing Google profile data" });
+    const { idToken } = req.body;
+    if (!idToken) {
+      return res.status(400).json({ message: "Missing Google ID token" });
+    }
+
+    let decodedToken;
+    try {
+      const admin = getFirebaseAdmin();
+      decodedToken = await admin.auth().verifyIdToken(idToken);
+    } catch (error) {
+      return res.status(401).json({ message: "Invalid Google token" });
+    }
+
+    const name = decodedToken.name || "Google User";
+    const email = decodedToken.email;
+    const photoURL = decodedToken.picture || "";
+
+    if (!email) {
+      return res.status(400).json({ message: "Google account email not available" });
     }
 
     const existingUser = await usersCollection.findOne({ email });
