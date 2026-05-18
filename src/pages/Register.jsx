@@ -1,11 +1,13 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useAuth } from "../context/AuthContext";
 
 const Register = () => {
   const { register } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  const redirectAfterLogin = location.state?.from || "/";
 
   const [formData, setFormData] = useState({
     name: "",
@@ -38,7 +40,7 @@ const Register = () => {
         photoURL: formData.photoURL,
         password: formData.password,
       });
-      navigate("/login");
+      navigate("/login", { state: { from: redirectAfterLogin }, replace: true });
     } catch (error) {
       toast.error(error.response?.data?.message || "Registration failed");
     }

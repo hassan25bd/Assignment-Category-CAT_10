@@ -29,7 +29,7 @@ const Login = () => {
       await loginWithGoogle();
       navigate(redirectTo, { replace: true });
     } catch (error) {
-      toast.error(error.response?.data?.message || "Google login failed");
+      toast.error(error.response?.data?.message || error.message || "Google login failed");
     }
   };
 
