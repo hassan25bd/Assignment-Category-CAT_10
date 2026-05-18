@@ -52,6 +52,15 @@ PetNest is a full-stack MERN platform that helps users discover adoptable pets, 
 - Server is ready for Render using `render.yaml`.
 - Keep MongoDB URI and JWT secret in environment variables.
 
+## Real Google Login Setup (Firebase)
+1. Create a Firebase project and enable Google sign-in in Authentication.
+2. Add client Firebase config keys to `client/.env` (`VITE_FIREBASE_*`).
+3. Generate a Firebase service account key and copy values into `server/.env`:
+   - `FIREBASE_PROJECT_ID`
+   - `FIREBASE_CLIENT_EMAIL`
+   - `FIREBASE_PRIVATE_KEY` (keep `\n` newlines escaped)
+4. Restart both client and server after env changes.
+
 ## Image Sources
 - Hero and story visuals use real photography from Unsplash and Pexels.
 - Links are credited in the site footer and image URLs are used only for assignment presentation.

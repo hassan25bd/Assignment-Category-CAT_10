@@ -1,6 +1,8 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import toast from "react-hot-toast";
+import { signInWithPopup, signOut } from "firebase/auth";
 import api from "../utils/api";
+import { auth, googleProvider, isFirebaseConfigured } from "../utils/firebase";
 
 const AuthContext = createContext(null);
 
@@ -35,18 +37,23 @@ export const AuthProvider = ({ children }) => {
   };
 
   const loginWithGoogle = async () => {
-    const demoProfile = {
-      name: "Google User",
-      email: `googleuser${Date.now()}@gmail.com`,
-      photoURL: "https://i.ibb.co/8gL5Pvb/default-avatar.png",
-    };
-    const { data } = await api.post("/auth/google", demoProfile);
+    if (!isFirebaseConfigured || !auth || !googleProvider) {
+      throw new Error("Firebase is not configured. Please set VITE_FIREBASE_* variables.");
+    }
+
+    const result = await signInWithPopup(auth, googleProvider);
+    const idToken = await result.user.getIdToken();
+
+    const { data } = await api.post("/auth/google", { idToken });
     setUser(data.user);
     toast.success("Google login successful");
   };
 
   const logout = async () => {
     await api.post("/auth/logout");
+    if (auth) {
+      await signOut(auth);
+    }
     setUser(null);
     toast.success("Logged out");
   };
