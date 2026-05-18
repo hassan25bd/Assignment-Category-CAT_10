@@ -129,7 +129,7 @@ const staticSections = [
   },
 ];
 
-const partnerLogos = ["Royal Canin", "Petco", "Zoetis", "Merck", "Felix", "Hill's"];
+const partnerLogos = ["Petfinder Network", "ASPCA", "Rescue Hub", "PetCare Trust", "AdoptTogether", "Local Shelters"];
 
 const adoptionPromises = [
   {
@@ -187,18 +187,18 @@ const Home = () => {
     <div>
       <section className="top-strip">
         <div className="top-strip-inner">
-          <p>ADOPTION WEEK: OPEN HEARTS, OPEN HOMES, OPEN FOREVER BONDS</p>
-          <p>ADOPTION WEEK: OPEN HEARTS, OPEN HOMES, OPEN FOREVER BONDS</p>
-          <p>ADOPTION WEEK: OPEN HEARTS, OPEN HOMES, OPEN FOREVER BONDS</p>
-          <p>ADOPTION WEEK: OPEN HEARTS, OPEN HOMES, OPEN FOREVER BONDS</p>
+          <p>BIG ADOPTION DRIVE TODAY • OPEN HEARTS • OPEN HOMES • HAPPY TAILS</p>
+          <p>BIG ADOPTION DRIVE TODAY • OPEN HEARTS • OPEN HOMES • HAPPY TAILS</p>
+          <p>BIG ADOPTION DRIVE TODAY • OPEN HEARTS • OPEN HOMES • HAPPY TAILS</p>
+          <p>BIG ADOPTION DRIVE TODAY • OPEN HEARTS • OPEN HOMES • HAPPY TAILS</p>
         </div>
       </section>
 
       <section className="hero">
         <div className="container hero-grid">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}>
-            <p className="hero-tag">PetNest Premium Adoption</p>
-            <h1>Find healthy, lovable pets and welcome joy into your home</h1>
+            <p className="hero-tag">Happy tails</p>
+            <h1>Making every rescue pet's life more comfortable</h1>
             <p>
               Discover dogs, cats, birds, and rabbits from verified owners and shelters. Browse elegant
               profiles, submit requests, and complete safe adoptions with confidence.
@@ -231,7 +231,7 @@ const Home = () => {
             <div className="hero-main-image" />
             <div className="hero-side-image" />
             <div className="hero-review-card">
-              <h4>20k+ Customer reviews</h4>
+              <h4>20k+ Community reviews</h4>
               <p>Families trust PetNest for transparent adoptions and pet care guidance.</p>
               <Link to="/pets" className="btn btn-primary btn-sm">
                 View Pets

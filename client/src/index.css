@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Quicksand:wght@500;600;700&display=swap");
 
 :root {
   --bg: #f7f3e8;
@@ -31,7 +31,7 @@
 
 body {
   margin: 0;
-  font-family: "Outfit", sans-serif;
+  font-family: "Lato", sans-serif;
   color: var(--ink);
   background:
     radial-gradient(circle at 10% 8%, rgba(30, 167, 182, 0.16), transparent 34%),
@@ -48,7 +48,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: "Fraunces", serif;
+  font-family: "Quicksand", sans-serif;
   margin: 0;
 }
 
@@ -349,7 +349,7 @@ p {
 .hero h1 {
   font-size: clamp(34px, 5vw, 58px);
   margin-bottom: 14px;
-  line-height: 1.05;
+  line-height: 1.08;
 }
 
 .hero p {
@@ -376,6 +376,7 @@ p {
   border: 1px solid var(--line);
   border-radius: 12px;
   padding: 10px;
+  box-shadow: 0 8px 20px rgba(20, 22, 24, 0.08);
 }
 
 .hero-metrics h3 {
